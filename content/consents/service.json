@@ -1,0 +1,33 @@
+{
+  "kind": "consent_text",
+  "ref_id": "service",
+  "status": "DRAFT",
+  "version": 7,
+  "note": "DRAFT engineering untuk pengembangan. Teks final ditulis dan disetujui konsultan hukum (UU PDP) — lihat docs/blockers/teks-hukum-consent-privasi-dpia.md. Tidak pernah aktif di production sebelum disetujui. Versi 7 (17 Okt 2026): menambahkan terjemahan Inggris di payload agar ketentuan dapat ditampilkan sesuai bahasa situs tanpa bergantung pada nomor versi di web; mempertahankan ketentuan beta/trial, penyimpanan di Singapura selama beta, production di Indonesia, dan pemrosesan AI di Amerika Serikat melalui Google Cloud Gemini Enterprise Agent Platform (Vertex AI). min_accepted_version tetap 1 karena masih DRAFT — konsultan hukum yang menentukan apakah perubahan ini material.",
+  "body": {
+    "type": "service",
+    "title": "Ketentuan DeepTalk AI",
+    "summary": [
+      "DeepTalk AI adalah program komputer (AI), bukan psikolog, dan tidak memberi diagnosis atau saran obat.",
+      "DeepTalk AI masih dalam masa beta/trial. Ketentuan ini bersifat sementara dan berlaku bagi pengguna selama masa beta/trial; naskah legal final akan dipublikasikan saat versi rilis resmi tersedia.",
+      "Pada versi beta, datamu disimpan terenkripsi di Singapura. Pada versi production atau rilis resmi, datamu disimpan terenkripsi di Indonesia. Untuk membalas, pesanmu diproses di Amerika Serikat melalui Gemini Enterprise Agent Platform (Vertex AI) milik Google Cloud.",
+      "Bila terdeteksi tanda bahaya, DeepTalk AI menampilkan kontak bantuan darurat.",
+      "Kamu bisa menghapus riwayat dan mencabut persetujuan kapan saja di Persetujuan & data."
+    ],
+    "body": "[DRAFT — belum ditinjau hukum]\n\nDeepTalk AI saat ini masih dalam masa beta/trial. Ketentuan ini bersifat sementara dan berlaku bagi pengguna yang mengikuti beta/trial. Tim hukum dan tim terkait sedang menyusun naskah legal final yang akan dipublikasikan saat versi rilis resmi tersedia.\n\nNaskah final akan menjelaskan data yang diproses, tujuan pemrosesan, penyedia model (Google Cloud Gemini Enterprise Agent Platform / Vertex AI), lokasi penyimpanan data (Singapura selama beta/trial; Indonesia pada versi production atau rilis resmi), lokasi pemrosesan AI (Amerika Serikat) beserta dasar transfer ke luar negeri (UU PDP Pasal 56), masa simpan (Q10), hak pengguna menurut UU PDP, dan cara menghubungi DeepTalk.",
+    "translations": {
+      "en": {
+        "title": "DeepTalk AI Terms",
+        "summary": [
+          "DeepTalk AI is an artificial intelligence (AI) computer program, not a psychologist. It does not provide diagnoses or medication advice.",
+          "DeepTalk AI is currently in beta/trial. These temporary terms apply to users during the beta/trial; the final legal terms will be published when the official release is available.",
+          "During the beta, your data is stored in encrypted form in Singapore. For the production or official release, your data will be stored in encrypted form in Indonesia. To generate replies, your messages are processed in the United States through Google Cloud's Gemini Enterprise Agent Platform (Vertex AI).",
+          "If signs of danger are detected, DeepTalk AI displays emergency help contacts.",
+          "You can delete your history and withdraw your consent at any time in Consent & data."
+        ],
+        "body": "[DRAFT — NOT REVIEWED BY LEGAL]\n\nDeepTalk AI is currently in beta/trial. These terms are temporary and apply to users participating in the beta/trial. Our legal and relevant teams are preparing the final legal terms, which will be published when the official release is available.\n\nThe final terms will explain the data processed and purposes, the model provider (Google Cloud Gemini Enterprise Agent Platform / Vertex AI), data storage locations (Singapore during beta/trial; Indonesia for the production or official release), AI processing in the United States and the legal basis for international transfers (Article 56 of Indonesia's Personal Data Protection Law), retention period (Q10), your rights under that law, and how to contact DeepTalk."
+      }
+    },
+    "min_accepted_version": 1
+  }
+}

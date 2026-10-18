@@ -1,0 +1,19 @@
+{
+  "kind": "consent_text",
+  "ref_id": "legacy_counseling",
+  "status": "DRAFT",
+  "version": 3,
+  "note": "DRAFT engineering untuk pengembangan Phase 9 (Konsep §7.4). Teks final ditulis dan disetujui konsultan hukum — lihat docs/blockers/teks-hukum-consent-privasi-dpia.md.",
+  "body": {
+    "type": "legacy_counseling",
+    "title": "Riwayat konseling chat sebelumnya",
+    "summary": [
+      "Pilihan ini sepenuhnya opsional; tidak menjawab berarti tidak setuju.",
+      "Bila kamu pernah konseling lewat chat di DeepTalk dan setuju, riwayat itu boleh dipakai untuk meningkatkan DeepTalk AI setelah identitasmu dihapus dan diperiksa manusia.",
+      "Psikolog yang menanganimu juga harus setuju sebelum jawabannya dipakai.",
+      "Kamu bisa mencabutnya kapan saja; data yang belum dipakai ikut dihapus."
+    ],
+    "body": "[DRAFT — belum ditinjau hukum]\n\nTeks lengkap persetujuan pemanfaatan riwayat konseling akan disusun konsultan hukum.",
+    "min_accepted_version": 1
+  }
+}

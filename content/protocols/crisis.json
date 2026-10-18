@@ -1,0 +1,17 @@
+{
+  "kind": "protocol",
+  "ref_id": "crisis",
+  "version": 1,
+  "status": "DRAFT",
+  "note": "DRAFT engineering. Isi final dan definisi level dari psikolog (Q5); hotline perlu diverifikasi (Q6). Tidak pernah aktif di production.",
+  "body": {
+    "level": "crisis",
+    "title": "Kamu tidak sendirian",
+    "message": "Terima kasih sudah mau bercerita. Yang kamu rasakan sekarang penting, dan keselamatanmu yang paling utama. Kalau kamu dalam bahaya atau berpikir untuk menyakiti diri, segera hubungi layanan darurat atau orang yang kamu percaya di dekatmu. Kamu juga bisa bicara dengan psikolog DeepTalk.",
+    "contacts": [
+      { "name": "Layanan darurat", "phone": "112", "description": "Panggilan darurat nasional, 24 jam.", "verified": false },
+      { "name": "Layanan konseling SEJIWA", "phone": "119 ext. 8", "description": "Layanan dukungan kesehatan jiwa.", "verified": false }
+    ],
+    "offer_psikolog": true
+  }
+}

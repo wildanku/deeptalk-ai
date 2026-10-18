@@ -1,0 +1,151 @@
+{
+  "name": "deeptalk-ai-gateway",
+  "version": "0.1.0",
+  "description": "DeepTalk AI gateway: Socket.IO /ai, REST /v1, sessions, quota, safety L1",
+  "private": true,
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@10.27.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "lint:check": "eslint \"{src,test}/**/*.ts\"",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "prisma:generate": "prisma generate",
+    "prisma:validate": "prisma validate",
+    "postinstall": "prisma generate",
+    "content:seed": "ts-node --transpile-only -r ./scripts/register-nodenext-resolution.js scripts/seed-content.ts",
+    "eval:l1": "ts-node --transpile-only -r ./scripts/register-nodenext-resolution.js scripts/eval-l1.ts",
+    "roles:grant": "ts-node --transpile-only -r ./scripts/register-nodenext-resolution.js scripts/grant-role.ts",
+    "eval:personas": "ts-node --transpile-only -r ./scripts/register-nodenext-resolution.js scripts/check-persona-evals.ts",
+    "rollout:readiness": "ts-node --transpile-only -r ./scripts/register-nodenext-resolution.js scripts/rollout-readiness.ts",
+    "knowledge:budget": "ts-node --transpile-only -r ./scripts/register-nodenext-resolution.js scripts/knowledge-budget.ts",
+    "data:gate": "ts-node --transpile-only -r ./scripts/register-nodenext-resolution.js scripts/data-gate.ts",
+    "dataset": "ts-node --transpile-only -r ./scripts/register-nodenext-resolution.js scripts/dataset.ts"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": [
+        "ts-jest",
+        {
+          "tsconfig": "<rootDir>/../tsconfig.jest.json"
+        }
+      ]
+    },
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s",
+      "!generated/**"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "transformIgnorePatterns": [
+      "/node_modules/\\.pnpm/(?!(jose|eventsource-parser)@)"
+    ]
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "@prisma/engines",
+      "prisma",
+      "unrs-resolver"
+    ],
+    "ignoredBuiltDependencies": [
+      "@parcel/watcher",
+      "msgpackr-extract",
+      "protobufjs"
+    ],
+    "overrides": {
+      "deepmerge-ts": ">=8.0.0",
+      "mysql2": ">=3.23.1"
+    }
+  },
+  "dependencies": {
+    "@google-cloud/dlp": "^7.2.0",
+    "@google-cloud/kms": "^6.2.1",
+    "@google-cloud/tasks": "^7.3.0",
+    "@nestjs/common": "^11.2.7",
+    "@nestjs/config": "^4.0.4",
+    "@nestjs/core": "^11.2.7",
+    "@nestjs/platform-express": "^11.2.7",
+    "@nestjs/platform-socket.io": "^11.2.7",
+    "@nestjs/websockets": "^11.2.7",
+    "@opentelemetry/api": "^1.9.1",
+    "@opentelemetry/exporter-trace-otlp-proto": "^0.223.0",
+    "@opentelemetry/instrumentation": "^0.223.0",
+    "@opentelemetry/instrumentation-http": "^0.223.0",
+    "@opentelemetry/instrumentation-nestjs-core": "^0.69.0",
+    "@opentelemetry/instrumentation-undici": "^0.33.0",
+    "@opentelemetry/resources": "^2.12.0",
+    "@opentelemetry/sdk-trace-base": "^2.12.0",
+    "@opentelemetry/sdk-trace-node": "^2.12.0",
+    "@opentelemetry/semantic-conventions": "^1.43.0",
+    "@prisma/adapter-pg": "^7.10.0",
+    "@prisma/client": "^7.10.0",
+    "@socket.io/redis-adapter": "^8.3.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
+    "eventsource-parser": "^4.1.1",
+    "google-auth-library": "^11.2.0",
+    "helmet": "^8.3.0",
+    "jose": "^6.2.12",
+    "nestjs-pino": "^5.3.1",
+    "pino": "^10.4.0",
+    "pino-http": "^11.0.0",
+    "redis": "^6.3.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "socket.io": "^4.8.4",
+    "uuidv7": "^1.2.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@eslint/js": "^9.39.5",
+    "@nestjs/cli": "^11.0.24",
+    "@nestjs/schematics": "^11.1.0",
+    "@nestjs/testing": "^11.2.7",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.19.1",
+    "@types/supertest": "^7.2.1",
+    "dotenv": "^18.0.6",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6",
+    "globals": "^17.13.0",
+    "jest": "^30.5.2",
+    "pino-pretty": "^13.2.0",
+    "prettier": "^3.9.9",
+    "prisma": "^7.10.0",
+    "socket.io-client": "^4.8.4",
+    "source-map-support": "^0.5.21",
+    "supertest": "^7.3.1",
+    "ts-jest": "^29.4.14",
+    "ts-loader": "^9.6.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.71.1"
+  }
+}

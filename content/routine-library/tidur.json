@@ -1,0 +1,33 @@
+{
+  "kind": "routine_item",
+  "status": "DRAFT",
+  "version": 1,
+  "note": "DRAFT placeholder. Topik dan item routine tambahan dipilih dan disusun psikolog (03 Phase 8); jangan dipakai sebagai saran.",
+  "items": [
+    {
+      "ref_id": "tdr_draft_checklist",
+      "body": {
+        "topic": "tidur",
+        "title": "[DRAFT] Item checklist",
+        "description": "[DRAFT] Isi item routine belum tersedia dari psikolog.",
+        "kind": "checklist",
+        "time_of_day": "any"
+      }
+    },
+    {
+      "ref_id": "tdr_draft_scale",
+      "body": {
+        "topic": "tidur",
+        "title": "[DRAFT] Item skala",
+        "description": "[DRAFT] Isi item routine belum tersedia dari psikolog.",
+        "kind": "scale",
+        "time_of_day": "evening",
+        "scale": {
+          "min": 1,
+          "max": 5,
+          "label": "[DRAFT] Label skala"
+        }
+      }
+    }
+  ]
+}

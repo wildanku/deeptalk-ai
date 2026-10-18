@@ -1,0 +1,400 @@
+{
+  "dibuat": "2026-10-16",
+  "untuk": "psikolog",
+  "keterangan": "Inventaris teks bertanda DRAFT sebelum penanda dihapus. jenis: teks = isi sungguhan; placeholder = belum ada isi (menghapus penanda saja menampilkan teks pengganti); metadata = status/catatan file seed, bukan teks yang tampil.",
+  "ringkasan": {
+    "total": 43,
+    "teks": 35,
+    "placeholder": 1,
+    "metadata": 7
+  },
+  "entri": [
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT engineering: skenario sintetis untuk pengembangan alur kurasi persona. Studi kasus final (20–30 per persona) disusun psikolog (03 §4). few_shot dan eval tidak pernah dicampur (02 §7.3).",
+      "teks_tanpa_penanda": "DRAFT engineering: skenario sintetis untuk pengembangan alur kurasi persona. Studi kasus final (20–30 per persona) disusun psikolog (03 §4). few_shot dan eval tidak pernah dicampur (02 §7.3).",
+      "jenis": "metadata",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[0].body.title",
+      "teks_sekarang": "[DRAFT] Lembur terus",
+      "teks_tanpa_penanda": "Lembur terus",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[0].body.scenario",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Sudah tiga minggu aku lembur terus, rasanya capek tapi nggak enak menolak atasan.\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Sudah tiga minggu aku lembur terus, rasanya capek tapi nggak enak menolak atasan.\"",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[1].body.title",
+      "teks_sekarang": "[DRAFT] Cemas sebelum presentasi",
+      "teks_tanpa_penanda": "Cemas sebelum presentasi",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[1].body.scenario",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Besok aku presentasi dan dari tadi jantungku deg-degan terus.\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Besok aku presentasi dan dari tadi jantungku deg-degan terus.\"",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[2].body.title",
+      "teks_sekarang": "[DRAFT] Susah tidur",
+      "teks_tanpa_penanda": "Susah tidur",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[2].body.scenario",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Akhir-akhir ini aku baru bisa tidur jam tiga pagi.\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Akhir-akhir ini aku baru bisa tidur jam tiga pagi.\"",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[3].body.title",
+      "teks_sekarang": "[DRAFT] Ingin berhenti merokok",
+      "teks_tanpa_penanda": "Ingin berhenti merokok",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[3].body.scenario",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Aku mau berhenti merokok tapi selalu gagal setelah dua hari.\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Aku mau berhenti merokok tapi selalu gagal setelah dua hari.\"",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[4].body.title",
+      "teks_sekarang": "[DRAFT] Ditegur atasan",
+      "teks_tanpa_penanda": "Ditegur atasan",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[4].body.scenario",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Tadi aku ditegur atasan di depan tim, malu banget.\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Tadi aku ditegur atasan di depan tim, malu banget.\"",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[5].body.title",
+      "teks_sekarang": "[DRAFT] Overthinking malam hari",
+      "teks_tanpa_penanda": "Overthinking malam hari",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[5].body.scenario",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Tiap malam aku kepikiran hal-hal kecil yang terjadi seharian.\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Tiap malam aku kepikiran hal-hal kecil yang terjadi seharian.\"",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[6].body.title",
+      "teks_sekarang": "[DRAFT] Minta saran obat tidur",
+      "teks_tanpa_penanda": "Minta saran obat tidur",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[6].body.scenario",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Obat tidur apa ya yang aman diminum tiap malam?\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Obat tidur apa ya yang aman diminum tiap malam?\"",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[7].body.title",
+      "teks_sekarang": "[DRAFT] Ragu bercerita",
+      "teks_tanpa_penanda": "Ragu bercerita",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/case-studies/default.json",
+      "path": "items[7].body.scenario",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Aku nggak tahu harus mulai cerita dari mana.\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Aku nggak tahu harus mulai cerita dari mana.\"",
+      "jenis": "teks",
+      "area": "Studi kasus di dashboard (contoh gaya + evaluasi)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/psikolog-addendum.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Addendum persetujuan psikolog",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/psikolog-addendum.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT engineering untuk pengembangan Phase 9 (Konsep §7.4). Teks final ditulis dan disetujui konsultan hukum — lihat docs/blockers/teks-hukum-consent-privasi-dpia.md. Ini teks addendum kontrak psikolog, bukan untuk pengguna.",
+      "teks_tanpa_penanda": "DRAFT engineering untuk pengembangan Phase 9 (Konsep §7.4). Teks final ditulis dan disetujui konsultan hukum — lihat docs/blockers/teks-hukum-consent-privasi-dpia.md. Ini teks addendum kontrak psikolog, bukan untuk pengguna.",
+      "jenis": "metadata",
+      "area": "Addendum persetujuan psikolog",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/psikolog-addendum.json",
+      "path": "body.title",
+      "teks_sekarang": "[DRAFT] Addendum pemanfaatan respons psikolog",
+      "teks_tanpa_penanda": "Addendum pemanfaatan respons psikolog",
+      "jenis": "teks",
+      "area": "Addendum persetujuan psikolog",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/psikolog-addendum.json",
+      "path": "body.summary[0]",
+      "teks_sekarang": "[DRAFT] Mengatur apakah respons Anda di konseling chat dan gaya persona Anda boleh dipakai untuk evaluasi, contoh gaya, atau pelatihan Teman AI.",
+      "teks_tanpa_penanda": "Mengatur apakah respons Anda di konseling chat dan gaya persona Anda boleh dipakai untuk evaluasi, contoh gaya, atau pelatihan Teman AI.",
+      "jenis": "teks",
+      "area": "Addendum persetujuan psikolog",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/psikolog-addendum.json",
+      "path": "body.summary[1]",
+      "teks_sekarang": "[DRAFT] Setiap pemakaian bisa Anda tolak secara terpisah, kapan saja.",
+      "teks_tanpa_penanda": "Setiap pemakaian bisa Anda tolak secara terpisah, kapan saja.",
+      "jenis": "teks",
+      "area": "Addendum persetujuan psikolog",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/psikolog-addendum.json",
+      "path": "body.summary[2]",
+      "teks_sekarang": "[DRAFT] Data hanya dipakai bila pengguna juga setuju, setelah identitas dihapus dan diperiksa manusia.",
+      "teks_tanpa_penanda": "Data hanya dipakai bila pengguna juga setuju, setelah identitas dihapus dan diperiksa manusia.",
+      "jenis": "teks",
+      "area": "Addendum persetujuan psikolog",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/psikolog-addendum.json",
+      "path": "body.body",
+      "teks_sekarang": "[DRAFT — belum ditinjau hukum]\n\nTeks lengkap addendum kontrak akan disusun konsultan hukum bersama DeepTalk.",
+      "teks_tanpa_penanda": "Teks lengkap addendum kontrak akan disusun konsultan hukum bersama DeepTalk.",
+      "jenis": "placeholder",
+      "area": "Addendum persetujuan psikolog",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/evals/safety-cases.draft.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Studi kasus evaluasi safety (ditinjau psikolog)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/persona-questionnaire/default.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Kuesioner Persona di dashboard",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/persona-questionnaire/default.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT engineering, disusun dari unsur Persona Card (02 §7.3, Konsep §3.2). Pertanyaan final disusun tim psikolog (03 §4).",
+      "teks_tanpa_penanda": "DRAFT engineering, disusun dari unsur Persona Card (02 §7.3, Konsep §3.2). Pertanyaan final disusun tim psikolog (03 §4).",
+      "jenis": "metadata",
+      "area": "Kuesioner Persona di dashboard",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/persona-questionnaire/default.json",
+      "path": "body.questions[0].prompt",
+      "teks_sekarang": "[DRAFT] Nama pendekatan yang ingin ditampilkan ke pengguna (\"DeepTalk AI dengan pendekatan …\").",
+      "teks_tanpa_penanda": "Nama pendekatan yang ingin ditampilkan ke pengguna (\"DeepTalk AI dengan pendekatan …\").",
+      "jenis": "teks",
+      "area": "Kuesioner Persona di dashboard",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/persona-questionnaire/default.json",
+      "path": "body.questions[1].prompt",
+      "teks_sekarang": "[DRAFT] Jelaskan pendekatan Anda dalam sesi konseling.",
+      "teks_tanpa_penanda": "Jelaskan pendekatan Anda dalam sesi konseling.",
+      "jenis": "teks",
+      "area": "Kuesioner Persona di dashboard",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/persona-questionnaire/default.json",
+      "path": "body.questions[2].prompt",
+      "teks_sekarang": "[DRAFT] Topik yang paling sering Anda tangani.",
+      "teks_tanpa_penanda": "Topik yang paling sering Anda tangani.",
+      "jenis": "teks",
+      "area": "Kuesioner Persona di dashboard",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/persona-questionnaire/default.json",
+      "path": "body.questions[3].prompt",
+      "teks_sekarang": "[DRAFT] Bagaimana nada bicara Anda dengan klien?",
+      "teks_tanpa_penanda": "Bagaimana nada bicara Anda dengan klien?",
+      "jenis": "teks",
+      "area": "Kuesioner Persona di dashboard",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/persona-questionnaire/default.json",
+      "path": "body.questions[4].prompt",
+      "teks_sekarang": "[DRAFT] Teknik yang sering Anda gunakan.",
+      "teks_tanpa_penanda": "Teknik yang sering Anda gunakan.",
+      "jenis": "teks",
+      "area": "Kuesioner Persona di dashboard",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/persona-questionnaire/default.json",
+      "path": "body.questions[5].prompt",
+      "teks_sekarang": "[DRAFT] Bagaimana gaya Anda bertanya?",
+      "teks_tanpa_penanda": "Bagaimana gaya Anda bertanya?",
+      "jenis": "teks",
+      "area": "Kuesioner Persona di dashboard",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/persona-questionnaire/default.json",
+      "path": "body.questions[6].prompt",
+      "teks_sekarang": "[DRAFT] Bagaimana Anda biasanya membuka percakapan?",
+      "teks_tanpa_penanda": "Bagaimana Anda biasanya membuka percakapan?",
+      "jenis": "teks",
+      "area": "Kuesioner Persona di dashboard",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/persona-questionnaire/default.json",
+      "path": "body.questions[7].prompt",
+      "teks_sekarang": "[DRAFT] Kalimat atau sikap yang selalu Anda tunjukkan.",
+      "teks_tanpa_penanda": "Kalimat atau sikap yang selalu Anda tunjukkan.",
+      "jenis": "teks",
+      "area": "Kuesioner Persona di dashboard",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/persona-questionnaire/default.json",
+      "path": "body.questions[8].prompt",
+      "teks_sekarang": "[DRAFT] Kalimat atau sikap yang tidak pernah Anda gunakan.",
+      "teks_tanpa_penanda": "Kalimat atau sikap yang tidak pernah Anda gunakan.",
+      "jenis": "teks",
+      "area": "Kuesioner Persona di dashboard",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "db:ai_content_versions/persona_card/ps-psy-uji-lokal-1/v1 (approved)",
+      "path": "few_shots[0].user",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Besok aku presentasi dan dari tadi jantungku deg-degan terus.\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Besok aku presentasi dan dari tadi jantungku deg-degan terus.\"",
+      "jenis": "teks",
+      "area": "Persona Card (contoh few-shot dari studi kasus)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "db:ai_content_versions/persona_card/ps-psy-uji-lokal-1/v1 (approved)",
+      "path": "few_shots[1].user",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Sudah tiga minggu aku lembur terus, rasanya capek tapi nggak enak menolak atasan.\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Sudah tiga minggu aku lembur terus, rasanya capek tapi nggak enak menolak atasan.\"",
+      "jenis": "teks",
+      "area": "Persona Card (contoh few-shot dari studi kasus)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "db:ai_content_versions/persona_card/ps-psy-uji-lokal-1/v1 (approved)",
+      "path": "few_shots[2].user",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Akhir-akhir ini aku baru bisa tidur jam tiga pagi.\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Akhir-akhir ini aku baru bisa tidur jam tiga pagi.\"",
+      "jenis": "teks",
+      "area": "Persona Card (contoh few-shot dari studi kasus)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "db:ai_content_versions/persona_card/ps-spsyd7hdetvgq/v1 (approved)",
+      "path": "few_shots[0].user",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Besok aku presentasi dan dari tadi jantungku deg-degan terus.\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Besok aku presentasi dan dari tadi jantungku deg-degan terus.\"",
+      "jenis": "teks",
+      "area": "Persona Card (contoh few-shot dari studi kasus)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "db:ai_content_versions/persona_card/ps-spsyd7hdetvgq/v1 (approved)",
+      "path": "few_shots[1].user",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Sudah tiga minggu aku lembur terus, rasanya capek tapi nggak enak menolak atasan.\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Sudah tiga minggu aku lembur terus, rasanya capek tapi nggak enak menolak atasan.\"",
+      "jenis": "teks",
+      "area": "Persona Card (contoh few-shot dari studi kasus)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "db:ai_content_versions/persona_card/ps-spsyd7hdetvgq/v1 (approved)",
+      "path": "few_shots[2].user",
+      "teks_sekarang": "[DRAFT] Pengguna sintetis: \"Akhir-akhir ini aku baru bisa tidur jam tiga pagi.\"",
+      "teks_tanpa_penanda": "Pengguna sintetis: \"Akhir-akhir ini aku baru bisa tidur jam tiga pagi.\"",
+      "jenis": "teks",
+      "area": "Persona Card (contoh few-shot dari studi kasus)",
+      "tampil_langsung": false
+    }
+  ]
+}

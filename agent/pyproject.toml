@@ -1,0 +1,56 @@
+[project]
+name = "deeptalk-ai-agent"
+version = "0.1.0"
+description = "DeepTalk AI agent: router, persona, safety (L2/L3), routine, handoff, summary"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.141.1",
+    "google-adk>=2.11.0",
+    # Gemini 4 Argon needs google-genai >= 2.30.1 (Agent Platform developer guide).
+    "google-genai>=2.30.1",
+    "pydantic-settings>=2.15.0",
+    "sse-starlette>=3.5.0",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[tool.uv]
+# Application, not a library: run with `uv run`, no wheel is built.
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "N", "RUF", "ASYNC", "S", "T20"]
+ignore = []
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+# Command-line evaluator: printing the report is its job.
+"evals/**" = ["T201"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+# ADK documents imports such as `google.adk.agents.run_config.StreamingMode` that are only
+# implicit re-exports.
+module = ["google.adk.*"]
+implicit_reexport = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.13.1",
+    "mypy>=2.4.0",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.16.10",
+]

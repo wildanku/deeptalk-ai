@@ -1,0 +1,16 @@
+{
+  "kind": "protocol",
+  "ref_id": "elevated",
+  "version": 1,
+  "status": "DRAFT",
+  "note": "DRAFT engineering. Isi final dari psikolog. Tidak pernah aktif di production.",
+  "body": {
+    "level": "elevated",
+    "title": "Bantuan selalu tersedia",
+    "message": "Sepertinya kamu sedang melalui masa yang berat. Kamu bisa terus bercerita di sini, dan kalau butuh dukungan lebih, psikolog DeepTalk siap membantu. Bila suatu saat kamu merasa tidak aman, hubungi layanan darurat.",
+    "contacts": [
+      { "name": "Layanan darurat", "phone": "112", "description": "Panggilan darurat nasional, 24 jam.", "verified": false }
+    ],
+    "offer_psikolog": true
+  }
+}

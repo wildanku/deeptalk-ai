@@ -1,0 +1,12 @@
+{
+  "kind": "topic",
+  "ref_id": "kecemasan",
+  "version": 2,
+  "status": "DRAFT",
+  "note": "DRAFT placeholder. Label dan deskripsi topik disusun psikolog (03 Phase 8).",
+  "body": {
+    "label": "Kecemasan",
+    "description": "[DRAFT] Deskripsi topik belum tersedia dari psikolog.",
+    "routine_allowed": true
+  }
+}

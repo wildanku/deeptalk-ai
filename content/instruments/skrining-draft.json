@@ -1,0 +1,82 @@
+{
+  "kind": "instrument",
+  "ref_id": "skrining-draft",
+  "version": 2,
+  "status": "DRAFT",
+  "note": "DRAFT placeholder untuk alur skrining berkala, termasuk butir keamanan. Instrumen sungguhan (pilihan, terjemahan tervalidasi, lisensi, rentang hasil) diputuskan psikolog (03 Phase 8).",
+  "body": {
+    "purpose": "screening",
+    "title": "Skrining berkala",
+    "intro": "[DRAFT] Pengantar skrining belum tersedia dari psikolog.",
+    "disclaimer": "[DRAFT] Hasil ini bukan diagnosis. Teks pengingat disusun psikolog.",
+    "interval_days": 14,
+    "options": [
+      {
+        "value": 0,
+        "label": "[DRAFT] Opsi 0"
+      },
+      {
+        "value": 1,
+        "label": "[DRAFT] Opsi 1"
+      },
+      {
+        "value": 2,
+        "label": "[DRAFT] Opsi 2"
+      },
+      {
+        "value": 3,
+        "label": "[DRAFT] Opsi 3"
+      }
+    ],
+    "items": [
+      {
+        "id": "b1",
+        "prompt": "[DRAFT] Butir skrining 1"
+      },
+      {
+        "id": "b2",
+        "prompt": "[DRAFT] Butir skrining 2"
+      },
+      {
+        "id": "b3",
+        "prompt": "[DRAFT] Butir skrining 3"
+      },
+      {
+        "id": "keamanan",
+        "prompt": "[DRAFT] Butir keamanan (jawaban ≥ 1 menampilkan protokol krisis)",
+        "safety": {
+          "min_value": 1,
+          "level": "crisis"
+        }
+      }
+    ],
+    "scoring": {
+      "method": "sum",
+      "dimensions": [],
+      "bands": [
+        {
+          "min": 0,
+          "max": 4,
+          "label": "[DRAFT] Rentang 1",
+          "description": "[DRAFT] Deskripsi rentang dari psikolog.",
+          "suggest": "none"
+        },
+        {
+          "min": 5,
+          "max": 8,
+          "label": "[DRAFT] Rentang 2",
+          "description": "[DRAFT] Deskripsi rentang dari psikolog.",
+          "suggest": "assessment"
+        },
+        {
+          "min": 9,
+          "max": 12,
+          "label": "[DRAFT] Rentang 3",
+          "description": "[DRAFT] Deskripsi rentang dari psikolog.",
+          "suggest": "psikolog"
+        }
+      ]
+    },
+    "topic": "kecemasan"
+  }
+}

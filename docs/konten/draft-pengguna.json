@@ -1,0 +1,1300 @@
+{
+  "dibuat": "2026-10-17",
+  "untuk": "pengguna",
+  "keterangan": "Inventaris teks bertanda DRAFT sebelum penanda dihapus. jenis: teks = isi sungguhan; placeholder = belum ada isi (menghapus penanda saja menampilkan teks pengganti); metadata = status/catatan file seed, bukan teks yang tampil.",
+  "ringkasan": {
+    "total": 143,
+    "teks": 28,
+    "placeholder": 69,
+    "metadata": 46
+  },
+  "entri": [
+    {
+      "sumber": "deeptalk-ai/content/assessment-mappings/mappings.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Pemetaan topik → asesmen (tidak tampil)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/ai-training.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/ai-training.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT engineering untuk pengembangan. Teks final ditulis dan disetujui konsultan hukum — lihat docs/blockers/teks-hukum-consent-privasi-dpia.md.",
+      "teks_tanpa_penanda": "DRAFT engineering untuk pengembangan. Teks final ditulis dan disetujui konsultan hukum — lihat docs/blockers/teks-hukum-consent-privasi-dpia.md.",
+      "jenis": "metadata",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/ai-training.json",
+      "path": "body.title",
+      "teks_sekarang": "[DRAFT] Bantu kami meningkatkan Teman AI",
+      "teks_tanpa_penanda": "Bantu kami meningkatkan Teman AI",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/ai-training.json",
+      "path": "body.summary[0]",
+      "teks_sekarang": "[DRAFT] Pilihan ini sepenuhnya opsional dan tidak memengaruhi layananmu.",
+      "teks_tanpa_penanda": "Pilihan ini sepenuhnya opsional dan tidak memengaruhi layananmu.",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/ai-training.json",
+      "path": "body.summary[1]",
+      "teks_sekarang": "[DRAFT] Bila setuju, percakapan dari sesi berikutnya boleh dipakai — setelah data pribadi disamarkan — untuk mengevaluasi dan meningkatkan Teman AI.",
+      "teks_tanpa_penanda": "Bila setuju, percakapan dari sesi berikutnya boleh dipakai — setelah data pribadi disamarkan — untuk mengevaluasi dan meningkatkan Teman AI.",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/ai-training.json",
+      "path": "body.summary[2]",
+      "teks_sekarang": "[DRAFT] Sesi yang mengandung tanda krisis tidak pernah dipakai.",
+      "teks_tanpa_penanda": "Sesi yang mengandung tanda krisis tidak pernah dipakai.",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/ai-training.json",
+      "path": "body.summary[3]",
+      "teks_sekarang": "[DRAFT] Kamu bisa mencabutnya kapan saja; sesi sebelumnya ikut dikeluarkan.",
+      "teks_tanpa_penanda": "Kamu bisa mencabutnya kapan saja; sesi sebelumnya ikut dikeluarkan.",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/ai-training.json",
+      "path": "body.body",
+      "teks_sekarang": "[DRAFT — belum ditinjau hukum]\n\nTeks lengkap persetujuan pemanfaatan data untuk peningkatan layanan akan disusun konsultan hukum.",
+      "teks_tanpa_penanda": "Teks lengkap persetujuan pemanfaatan data untuk peningkatan layanan akan disusun konsultan hukum.",
+      "jenis": "placeholder",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/legacy-counseling.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/legacy-counseling.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT engineering untuk pengembangan Phase 9 (Konsep §7.4). Teks final ditulis dan disetujui konsultan hukum — lihat docs/blockers/teks-hukum-consent-privasi-dpia.md.",
+      "teks_tanpa_penanda": "DRAFT engineering untuk pengembangan Phase 9 (Konsep §7.4). Teks final ditulis dan disetujui konsultan hukum — lihat docs/blockers/teks-hukum-consent-privasi-dpia.md.",
+      "jenis": "metadata",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/legacy-counseling.json",
+      "path": "body.title",
+      "teks_sekarang": "[DRAFT] Riwayat konseling chat sebelumnya",
+      "teks_tanpa_penanda": "Riwayat konseling chat sebelumnya",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/legacy-counseling.json",
+      "path": "body.summary[0]",
+      "teks_sekarang": "[DRAFT] Pilihan ini sepenuhnya opsional; tidak menjawab berarti tidak setuju.",
+      "teks_tanpa_penanda": "Pilihan ini sepenuhnya opsional; tidak menjawab berarti tidak setuju.",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/legacy-counseling.json",
+      "path": "body.summary[1]",
+      "teks_sekarang": "[DRAFT] Bila kamu pernah konseling lewat chat di DeepTalk dan setuju, riwayat itu boleh dipakai untuk meningkatkan Teman AI setelah identitasmu dihapus dan diperiksa manusia.",
+      "teks_tanpa_penanda": "Bila kamu pernah konseling lewat chat di DeepTalk dan setuju, riwayat itu boleh dipakai untuk meningkatkan Teman AI setelah identitasmu dihapus dan diperiksa manusia.",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/legacy-counseling.json",
+      "path": "body.summary[2]",
+      "teks_sekarang": "[DRAFT] Psikolog yang menanganimu juga harus setuju sebelum jawabannya dipakai.",
+      "teks_tanpa_penanda": "Psikolog yang menanganimu juga harus setuju sebelum jawabannya dipakai.",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/legacy-counseling.json",
+      "path": "body.summary[3]",
+      "teks_sekarang": "[DRAFT] Kamu bisa mencabutnya kapan saja; data yang belum dipakai ikut dihapus.",
+      "teks_tanpa_penanda": "Kamu bisa mencabutnya kapan saja; data yang belum dipakai ikut dihapus.",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/legacy-counseling.json",
+      "path": "body.body",
+      "teks_sekarang": "[DRAFT — belum ditinjau hukum]\n\nTeks lengkap persetujuan pemanfaatan riwayat konseling akan disusun konsultan hukum.",
+      "teks_tanpa_penanda": "Teks lengkap persetujuan pemanfaatan riwayat konseling akan disusun konsultan hukum.",
+      "jenis": "placeholder",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/service.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/service.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT engineering untuk pengembangan. Teks final ditulis dan disetujui konsultan hukum (UU PDP) — lihat docs/blockers/teks-hukum-consent-privasi-dpia.md. Tidak pernah aktif di production sebelum disetujui. Versi 2 (15 Okt 2026): lokasi pemrosesan model diperbaiki menjadi Amerika Serikat (keputusan Q7); min_accepted_version tetap 1 karena masih DRAFT — konsultan hukum yang menentukan apakah perubahan ini material.",
+      "teks_tanpa_penanda": "DRAFT engineering untuk pengembangan. Teks final ditulis dan disetujui konsultan hukum (UU PDP) — lihat docs/blockers/teks-hukum-consent-privasi-dpia.md. Tidak pernah aktif di production sebelum disetujui. Versi 2 (15 Okt 2026): lokasi pemrosesan model diperbaiki menjadi Amerika Serikat (keputusan Q7); min_accepted_version tetap 1 karena masih DRAFT — konsultan hukum yang menentukan apakah perubahan ini material.",
+      "jenis": "metadata",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/service.json",
+      "path": "body.title",
+      "teks_sekarang": "[DRAFT] Ketentuan Teman AI",
+      "teks_tanpa_penanda": "Ketentuan Teman AI",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/service.json",
+      "path": "body.summary[0]",
+      "teks_sekarang": "[DRAFT] Teman AI adalah program komputer (AI), bukan psikolog, dan tidak memberi diagnosis atau saran obat.",
+      "teks_tanpa_penanda": "Teman AI adalah program komputer (AI), bukan psikolog, dan tidak memberi diagnosis atau saran obat.",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/service.json",
+      "path": "body.summary[1]",
+      "teks_sekarang": "[DRAFT] Pesanmu disimpan terenkripsi di Indonesia. Untuk membalas, pesan diproses oleh model AI Google (Gemini) di Amerika Serikat.",
+      "teks_tanpa_penanda": "Pesanmu disimpan terenkripsi di Indonesia. Untuk membalas, pesan diproses oleh model AI Google (Gemini) di Amerika Serikat.",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/service.json",
+      "path": "body.summary[2]",
+      "teks_sekarang": "[DRAFT] Bila terdeteksi tanda bahaya, Teman AI menampilkan kontak bantuan darurat.",
+      "teks_tanpa_penanda": "Bila terdeteksi tanda bahaya, Teman AI menampilkan kontak bantuan darurat.",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/service.json",
+      "path": "body.summary[3]",
+      "teks_sekarang": "[DRAFT] Kamu bisa menghapus riwayat dan mencabut persetujuan kapan saja di Persetujuan & data.",
+      "teks_tanpa_penanda": "Kamu bisa menghapus riwayat dan mencabut persetujuan kapan saja di Persetujuan & data.",
+      "jenis": "teks",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/consents/service.json",
+      "path": "body.body",
+      "teks_sekarang": "[DRAFT — belum ditinjau hukum]\n\nTeks lengkap ketentuan layanan DeepTalk AI akan disusun konsultan hukum: data yang diproses, tujuan, penyedia model (Google Cloud Gemini Enterprise Agent Platform / Vertex AI), lokasi penyimpanan data (Singapura untuk versi beta; Indonesia untuk production atau rilis resmi), lokasi pemrosesan AI (Amerika Serikat) beserta dasar transfer ke luar negeri (UU PDP Pasal 56), masa simpan (Q10), hak pengguna menurut UU PDP, dan cara menghubungi DeepTalk.",
+      "teks_tanpa_penanda": "Teks lengkap ketentuan layanan DeepTalk AI akan disusun konsultan hukum: data yang diproses, tujuan, penyedia model (Google Cloud Gemini Enterprise Agent Platform / Vertex AI), lokasi penyimpanan data (Singapura untuk versi beta; Indonesia untuk production atau rilis resmi), lokasi pemrosesan AI (Amerika Serikat) beserta dasar transfer ke luar negeri (UU PDP Pasal 56), masa simpan (Q10), hak pengguna menurut UU PDP, dan cara menghubungi DeepTalk.",
+      "jenis": "placeholder",
+      "area": "Teks persetujuan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/handoff-psikologs/psikologs.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Daftar psikolog handoff (tidak tampil)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder untuk alur check-in harian. Butir dan skala dipilih psikolog (03 Phase 8).",
+      "teks_tanpa_penanda": "DRAFT placeholder untuk alur check-in harian. Butir dan skala dipilih psikolog (03 Phase 8).",
+      "jenis": "metadata",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.title",
+      "teks_sekarang": "[DRAFT] Check-in harian",
+      "teks_tanpa_penanda": "Check-in harian",
+      "jenis": "teks",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.intro",
+      "teks_sekarang": "[DRAFT] Pengantar check-in belum tersedia dari psikolog.",
+      "teks_tanpa_penanda": "Pengantar check-in belum tersedia dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.disclaimer",
+      "teks_sekarang": "[DRAFT] Hasil ini bukan diagnosis. Teks pengingat disusun psikolog.",
+      "teks_tanpa_penanda": "Hasil ini bukan diagnosis. Teks pengingat disusun psikolog.",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.options[0].label",
+      "teks_sekarang": "[DRAFT] 1",
+      "teks_tanpa_penanda": "1",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.options[1].label",
+      "teks_sekarang": "[DRAFT] 2",
+      "teks_tanpa_penanda": "2",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.options[2].label",
+      "teks_sekarang": "[DRAFT] 3",
+      "teks_tanpa_penanda": "3",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.options[3].label",
+      "teks_sekarang": "[DRAFT] 4",
+      "teks_tanpa_penanda": "4",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.options[4].label",
+      "teks_sekarang": "[DRAFT] 5",
+      "teks_tanpa_penanda": "5",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.items[0].prompt",
+      "teks_sekarang": "[DRAFT] Butir check-in 1",
+      "teks_tanpa_penanda": "Butir check-in 1",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.items[0].short_label",
+      "teks_sekarang": "[DRAFT] Butir 1",
+      "teks_tanpa_penanda": "Butir 1",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.items[1].prompt",
+      "teks_sekarang": "[DRAFT] Butir check-in 2",
+      "teks_tanpa_penanda": "Butir check-in 2",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.items[1].short_label",
+      "teks_sekarang": "[DRAFT] Butir 2",
+      "teks_tanpa_penanda": "Butir 2",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.items[2].prompt",
+      "teks_sekarang": "[DRAFT] Butir check-in 3",
+      "teks_tanpa_penanda": "Butir check-in 3",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/checkin-harian.json",
+      "path": "body.items[2].short_label",
+      "teks_sekarang": "[DRAFT] Butir 3",
+      "teks_tanpa_penanda": "Butir 3",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder untuk alur inventori kepribadian saat onboarding (opsional). Instrumen dan dimensinya diputuskan psikolog; hasil hanya untuk pengguna (03 Phase 8).",
+      "teks_tanpa_penanda": "DRAFT placeholder untuk alur inventori kepribadian saat onboarding (opsional). Instrumen dan dimensinya diputuskan psikolog; hasil hanya untuk pengguna (03 Phase 8).",
+      "jenis": "metadata",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.title",
+      "teks_sekarang": "[DRAFT] Inventori kepribadian",
+      "teks_tanpa_penanda": "Inventori kepribadian",
+      "jenis": "teks",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.intro",
+      "teks_sekarang": "[DRAFT] Pengantar inventori belum tersedia dari psikolog. Opsional dan bisa dilewati.",
+      "teks_tanpa_penanda": "Pengantar inventori belum tersedia dari psikolog. Opsional dan bisa dilewati.",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.disclaimer",
+      "teks_sekarang": "[DRAFT] Hasil ini bukan diagnosis. Teks pengingat disusun psikolog.",
+      "teks_tanpa_penanda": "Hasil ini bukan diagnosis. Teks pengingat disusun psikolog.",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.options[0].label",
+      "teks_sekarang": "[DRAFT] 1",
+      "teks_tanpa_penanda": "1",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.options[1].label",
+      "teks_sekarang": "[DRAFT] 2",
+      "teks_tanpa_penanda": "2",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.options[2].label",
+      "teks_sekarang": "[DRAFT] 3",
+      "teks_tanpa_penanda": "3",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.options[3].label",
+      "teks_sekarang": "[DRAFT] 4",
+      "teks_tanpa_penanda": "4",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.options[4].label",
+      "teks_sekarang": "[DRAFT] 5",
+      "teks_tanpa_penanda": "5",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.items[0].prompt",
+      "teks_sekarang": "[DRAFT] Butir dimensi 1-a",
+      "teks_tanpa_penanda": "Butir dimensi 1-a",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.items[1].prompt",
+      "teks_sekarang": "[DRAFT] Butir dimensi 1-b",
+      "teks_tanpa_penanda": "Butir dimensi 1-b",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.items[2].prompt",
+      "teks_sekarang": "[DRAFT] Butir dimensi 2-a",
+      "teks_tanpa_penanda": "Butir dimensi 2-a",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.items[3].prompt",
+      "teks_sekarang": "[DRAFT] Butir dimensi 2-b",
+      "teks_tanpa_penanda": "Butir dimensi 2-b",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.scoring.dimensions[0].label",
+      "teks_sekarang": "[DRAFT] Dimensi 1",
+      "teks_tanpa_penanda": "Dimensi 1",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.scoring.dimensions[0].description",
+      "teks_sekarang": "[DRAFT] Deskripsi dimensi dari psikolog.",
+      "teks_tanpa_penanda": "Deskripsi dimensi dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.scoring.dimensions[1].label",
+      "teks_sekarang": "[DRAFT] Dimensi 2",
+      "teks_tanpa_penanda": "Dimensi 2",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/inventori-kepribadian.json",
+      "path": "body.scoring.dimensions[1].description",
+      "teks_sekarang": "[DRAFT] Deskripsi dimensi dari psikolog.",
+      "teks_tanpa_penanda": "Deskripsi dimensi dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder untuk alur skrining berkala, termasuk butir keamanan. Instrumen sungguhan (pilihan, terjemahan tervalidasi, lisensi, rentang hasil) diputuskan psikolog (03 Phase 8).",
+      "teks_tanpa_penanda": "DRAFT placeholder untuk alur skrining berkala, termasuk butir keamanan. Instrumen sungguhan (pilihan, terjemahan tervalidasi, lisensi, rentang hasil) diputuskan psikolog (03 Phase 8).",
+      "jenis": "metadata",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.title",
+      "teks_sekarang": "[DRAFT] Skrining berkala",
+      "teks_tanpa_penanda": "Skrining berkala",
+      "jenis": "teks",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.intro",
+      "teks_sekarang": "[DRAFT] Pengantar skrining belum tersedia dari psikolog.",
+      "teks_tanpa_penanda": "Pengantar skrining belum tersedia dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.disclaimer",
+      "teks_sekarang": "[DRAFT] Hasil ini bukan diagnosis. Teks pengingat disusun psikolog.",
+      "teks_tanpa_penanda": "Hasil ini bukan diagnosis. Teks pengingat disusun psikolog.",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.options[0].label",
+      "teks_sekarang": "[DRAFT] Opsi 0",
+      "teks_tanpa_penanda": "Opsi 0",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.options[1].label",
+      "teks_sekarang": "[DRAFT] Opsi 1",
+      "teks_tanpa_penanda": "Opsi 1",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.options[2].label",
+      "teks_sekarang": "[DRAFT] Opsi 2",
+      "teks_tanpa_penanda": "Opsi 2",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.options[3].label",
+      "teks_sekarang": "[DRAFT] Opsi 3",
+      "teks_tanpa_penanda": "Opsi 3",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.items[0].prompt",
+      "teks_sekarang": "[DRAFT] Butir skrining 1",
+      "teks_tanpa_penanda": "Butir skrining 1",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.items[1].prompt",
+      "teks_sekarang": "[DRAFT] Butir skrining 2",
+      "teks_tanpa_penanda": "Butir skrining 2",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.items[2].prompt",
+      "teks_sekarang": "[DRAFT] Butir skrining 3",
+      "teks_tanpa_penanda": "Butir skrining 3",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.items[3].prompt",
+      "teks_sekarang": "[DRAFT] Butir keamanan (jawaban ≥ 1 menampilkan protokol krisis)",
+      "teks_tanpa_penanda": "Butir keamanan (jawaban ≥ 1 menampilkan protokol krisis)",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.scoring.bands[0].label",
+      "teks_sekarang": "[DRAFT] Rentang 1",
+      "teks_tanpa_penanda": "Rentang 1",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.scoring.bands[0].description",
+      "teks_sekarang": "[DRAFT] Deskripsi rentang dari psikolog.",
+      "teks_tanpa_penanda": "Deskripsi rentang dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.scoring.bands[1].label",
+      "teks_sekarang": "[DRAFT] Rentang 2",
+      "teks_tanpa_penanda": "Rentang 2",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.scoring.bands[1].description",
+      "teks_sekarang": "[DRAFT] Deskripsi rentang dari psikolog.",
+      "teks_tanpa_penanda": "Deskripsi rentang dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.scoring.bands[2].label",
+      "teks_sekarang": "[DRAFT] Rentang 3",
+      "teks_tanpa_penanda": "Rentang 3",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/instruments/skrining-draft.json",
+      "path": "body.scoring.bands[2].description",
+      "teks_sekarang": "[DRAFT] Deskripsi rentang dari psikolog.",
+      "teks_tanpa_penanda": "Deskripsi rentang dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Cek diri (check-in, skrining, inventori)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/kecemasan.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/kecemasan.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder. Materi pengetahuan klinis disusun dan disetujui psikolog (03 §4).",
+      "teks_tanpa_penanda": "DRAFT placeholder. Materi pengetahuan klinis disusun dan disetujui psikolog (03 §4).",
+      "jenis": "metadata",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/kecemasan.json",
+      "path": "body.title",
+      "teks_sekarang": "[DRAFT] Materi kecemasan",
+      "teks_tanpa_penanda": "Materi kecemasan",
+      "jenis": "placeholder",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/kecemasan.json",
+      "path": "body.content",
+      "teks_sekarang": "[DRAFT] Materi psikoedukasi untuk topik ini belum tersedia dari psikolog. Jangan menyimpulkan apa pun dari teks ini; tetap ikuti aturan global.",
+      "teks_tanpa_penanda": "Materi psikoedukasi untuk topik ini belum tersedia dari psikolog. Jangan menyimpulkan apa pun dari teks ini; tetap ikuti aturan global.",
+      "jenis": "placeholder",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/rokok.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/rokok.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder. Materi pengetahuan klinis disusun dan disetujui psikolog (03 §4).",
+      "teks_tanpa_penanda": "DRAFT placeholder. Materi pengetahuan klinis disusun dan disetujui psikolog (03 §4).",
+      "jenis": "metadata",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/rokok.json",
+      "path": "body.title",
+      "teks_sekarang": "[DRAFT] Materi rokok",
+      "teks_tanpa_penanda": "Materi rokok",
+      "jenis": "placeholder",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/rokok.json",
+      "path": "body.content",
+      "teks_sekarang": "[DRAFT] Materi psikoedukasi untuk topik ini belum tersedia dari psikolog. Jangan menyimpulkan apa pun dari teks ini; tetap ikuti aturan global.",
+      "teks_tanpa_penanda": "Materi psikoedukasi untuk topik ini belum tersedia dari psikolog. Jangan menyimpulkan apa pun dari teks ini; tetap ikuti aturan global.",
+      "jenis": "placeholder",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/stres_kerja.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/stres_kerja.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder. Materi pengetahuan klinis disusun dan disetujui psikolog (03 §4).",
+      "teks_tanpa_penanda": "DRAFT placeholder. Materi pengetahuan klinis disusun dan disetujui psikolog (03 §4).",
+      "jenis": "metadata",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/stres_kerja.json",
+      "path": "body.title",
+      "teks_sekarang": "[DRAFT] Materi stres_kerja",
+      "teks_tanpa_penanda": "Materi stres_kerja",
+      "jenis": "placeholder",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/stres_kerja.json",
+      "path": "body.content",
+      "teks_sekarang": "[DRAFT] Materi psikoedukasi untuk topik ini belum tersedia dari psikolog. Jangan menyimpulkan apa pun dari teks ini; tetap ikuti aturan global.",
+      "teks_tanpa_penanda": "Materi psikoedukasi untuk topik ini belum tersedia dari psikolog. Jangan menyimpulkan apa pun dari teks ini; tetap ikuti aturan global.",
+      "jenis": "placeholder",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/tidur.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/tidur.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder. Materi pengetahuan klinis disusun dan disetujui psikolog (03 §4).",
+      "teks_tanpa_penanda": "DRAFT placeholder. Materi pengetahuan klinis disusun dan disetujui psikolog (03 §4).",
+      "jenis": "metadata",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/tidur.json",
+      "path": "body.title",
+      "teks_sekarang": "[DRAFT] Materi tidur",
+      "teks_tanpa_penanda": "Materi tidur",
+      "jenis": "placeholder",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/knowledge/tidur.json",
+      "path": "body.content",
+      "teks_sekarang": "[DRAFT] Materi psikoedukasi untuk topik ini belum tersedia dari psikolog. Jangan menyimpulkan apa pun dari teks ini; tetap ikuti aturan global.",
+      "teks_tanpa_penanda": "Materi psikoedukasi untuk topik ini belum tersedia dari psikolog. Jangan menyimpulkan apa pun dari teks ini; tetap ikuti aturan global.",
+      "jenis": "placeholder",
+      "area": "Pengetahuan klinis (dibaca model, tidak tampil langsung)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/l1-phrases/default.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Frasa safety L1 (dibaca gateway, tidak tampil)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/l1-phrases/default.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT engineering untuk pengembangan. Daftar final disusun psikolog + engineer (03 §4). Tidak pernah aktif di production.",
+      "teks_tanpa_penanda": "DRAFT engineering untuk pengembangan. Daftar final disusun psikolog + engineer (03 §4). Tidak pernah aktif di production.",
+      "jenis": "metadata",
+      "area": "Frasa safety L1 (dibaca gateway, tidak tampil)",
+      "tampil_langsung": false
+    },
+    {
+      "sumber": "deeptalk-ai/content/personas/draft-reflektif.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Persona contoh (nama tampil)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/personas/draft-reflektif.json",
+      "path": "persona.psychologist_id",
+      "teks_sekarang": "DRAFT-PLACEHOLDER-1",
+      "teks_tanpa_penanda": "DRAFT-PLACEHOLDER-1",
+      "jenis": "teks",
+      "area": "Persona contoh (nama tampil)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/personas/draft-reflektif.json",
+      "path": "persona.display_name",
+      "teks_sekarang": "Contoh Reflektif (DRAFT)",
+      "teks_tanpa_penanda": "Contoh Reflektif",
+      "jenis": "teks",
+      "area": "Persona contoh (nama tampil)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/personas/draft-terstruktur.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Persona contoh (nama tampil)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/personas/draft-terstruktur.json",
+      "path": "persona.psychologist_id",
+      "teks_sekarang": "DRAFT-PLACEHOLDER-2",
+      "teks_tanpa_penanda": "DRAFT-PLACEHOLDER-2",
+      "jenis": "teks",
+      "area": "Persona contoh (nama tampil)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/personas/draft-terstruktur.json",
+      "path": "persona.display_name",
+      "teks_sekarang": "Contoh Terstruktur (DRAFT)",
+      "teks_tanpa_penanda": "Contoh Terstruktur",
+      "jenis": "teks",
+      "area": "Persona contoh (nama tampil)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/protocols/crisis.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Protokol keamanan (krisis/elevated)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/protocols/crisis.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT engineering. Isi final dan definisi level dari psikolog (Q5); hotline perlu diverifikasi (Q6). Tidak pernah aktif di production.",
+      "teks_tanpa_penanda": "DRAFT engineering. Isi final dan definisi level dari psikolog (Q5); hotline perlu diverifikasi (Q6). Tidak pernah aktif di production.",
+      "jenis": "metadata",
+      "area": "Protokol keamanan (krisis/elevated)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/protocols/elevated.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Protokol keamanan (krisis/elevated)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/protocols/elevated.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT engineering. Isi final dari psikolog. Tidak pernah aktif di production.",
+      "teks_tanpa_penanda": "DRAFT engineering. Isi final dari psikolog. Tidak pernah aktif di production.",
+      "jenis": "metadata",
+      "area": "Protokol keamanan (krisis/elevated)",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/kecemasan.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/kecemasan.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder. Topik dan item routine tambahan dipilih dan disusun psikolog (03 Phase 8); jangan dipakai sebagai saran.",
+      "teks_tanpa_penanda": "DRAFT placeholder. Topik dan item routine tambahan dipilih dan disusun psikolog (03 Phase 8); jangan dipakai sebagai saran.",
+      "jenis": "metadata",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/kecemasan.json",
+      "path": "items[0].body.title",
+      "teks_sekarang": "[DRAFT] Item checklist",
+      "teks_tanpa_penanda": "Item checklist",
+      "jenis": "placeholder",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/kecemasan.json",
+      "path": "items[0].body.description",
+      "teks_sekarang": "[DRAFT] Isi item routine belum tersedia dari psikolog.",
+      "teks_tanpa_penanda": "Isi item routine belum tersedia dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/kecemasan.json",
+      "path": "items[1].body.title",
+      "teks_sekarang": "[DRAFT] Item skala",
+      "teks_tanpa_penanda": "Item skala",
+      "jenis": "placeholder",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/kecemasan.json",
+      "path": "items[1].body.description",
+      "teks_sekarang": "[DRAFT] Isi item routine belum tersedia dari psikolog.",
+      "teks_tanpa_penanda": "Isi item routine belum tersedia dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/kecemasan.json",
+      "path": "items[1].body.scale.label",
+      "teks_sekarang": "[DRAFT] Label skala",
+      "teks_tanpa_penanda": "Label skala",
+      "jenis": "placeholder",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/rokok.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/rokok.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT dari contoh di dokumen konsep §3.6. Pustaka final disusun psikolog (03 §4).",
+      "teks_tanpa_penanda": "DRAFT dari contoh di dokumen konsep §3.6. Pustaka final disusun psikolog (03 §4).",
+      "jenis": "metadata",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/stres_kerja.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/stres_kerja.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder. Pustaka final disusun psikolog (03 §4).",
+      "teks_tanpa_penanda": "DRAFT placeholder. Pustaka final disusun psikolog (03 §4).",
+      "jenis": "metadata",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/tidur.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/tidur.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder. Topik dan item routine tambahan dipilih dan disusun psikolog (03 Phase 8); jangan dipakai sebagai saran.",
+      "teks_tanpa_penanda": "DRAFT placeholder. Topik dan item routine tambahan dipilih dan disusun psikolog (03 Phase 8); jangan dipakai sebagai saran.",
+      "jenis": "metadata",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/tidur.json",
+      "path": "items[0].body.title",
+      "teks_sekarang": "[DRAFT] Item checklist",
+      "teks_tanpa_penanda": "Item checklist",
+      "jenis": "placeholder",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/tidur.json",
+      "path": "items[0].body.description",
+      "teks_sekarang": "[DRAFT] Isi item routine belum tersedia dari psikolog.",
+      "teks_tanpa_penanda": "Isi item routine belum tersedia dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/tidur.json",
+      "path": "items[1].body.title",
+      "teks_sekarang": "[DRAFT] Item skala",
+      "teks_tanpa_penanda": "Item skala",
+      "jenis": "placeholder",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/tidur.json",
+      "path": "items[1].body.description",
+      "teks_sekarang": "[DRAFT] Isi item routine belum tersedia dari psikolog.",
+      "teks_tanpa_penanda": "Isi item routine belum tersedia dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/routine-library/tidur.json",
+      "path": "items[1].body.scale.label",
+      "teks_sekarang": "[DRAFT] Label skala",
+      "teks_tanpa_penanda": "Label skala",
+      "jenis": "placeholder",
+      "area": "Pustaka Daily Routine",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/kecemasan.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/kecemasan.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder. Label dan deskripsi topik disusun psikolog (03 Phase 8).",
+      "teks_tanpa_penanda": "DRAFT placeholder. Label dan deskripsi topik disusun psikolog (03 Phase 8).",
+      "jenis": "metadata",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/kecemasan.json",
+      "path": "body.label",
+      "teks_sekarang": "[DRAFT] Kecemasan",
+      "teks_tanpa_penanda": "Kecemasan",
+      "jenis": "teks",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/kecemasan.json",
+      "path": "body.description",
+      "teks_sekarang": "[DRAFT] Deskripsi topik belum tersedia dari psikolog.",
+      "teks_tanpa_penanda": "Deskripsi topik belum tersedia dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/rokok.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/rokok.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder. Label dan deskripsi topik disusun psikolog (03 Phase 8).",
+      "teks_tanpa_penanda": "DRAFT placeholder. Label dan deskripsi topik disusun psikolog (03 Phase 8).",
+      "jenis": "metadata",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/rokok.json",
+      "path": "body.label",
+      "teks_sekarang": "[DRAFT] Berhenti merokok",
+      "teks_tanpa_penanda": "Berhenti merokok",
+      "jenis": "teks",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/rokok.json",
+      "path": "body.description",
+      "teks_sekarang": "[DRAFT] Deskripsi topik belum tersedia dari psikolog.",
+      "teks_tanpa_penanda": "Deskripsi topik belum tersedia dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/stres_kerja.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/stres_kerja.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder. Label dan deskripsi topik disusun psikolog (03 Phase 8).",
+      "teks_tanpa_penanda": "DRAFT placeholder. Label dan deskripsi topik disusun psikolog (03 Phase 8).",
+      "jenis": "metadata",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/stres_kerja.json",
+      "path": "body.label",
+      "teks_sekarang": "[DRAFT] Stres kerja",
+      "teks_tanpa_penanda": "Stres kerja",
+      "jenis": "teks",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/stres_kerja.json",
+      "path": "body.description",
+      "teks_sekarang": "[DRAFT] Deskripsi topik belum tersedia dari psikolog.",
+      "teks_tanpa_penanda": "Deskripsi topik belum tersedia dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/tidur.json",
+      "path": "status",
+      "teks_sekarang": "DRAFT",
+      "teks_tanpa_penanda": "DRAFT",
+      "jenis": "metadata",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/tidur.json",
+      "path": "note",
+      "teks_sekarang": "DRAFT placeholder. Label dan deskripsi topik disusun psikolog (03 Phase 8).",
+      "teks_tanpa_penanda": "DRAFT placeholder. Label dan deskripsi topik disusun psikolog (03 Phase 8).",
+      "jenis": "metadata",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/tidur.json",
+      "path": "body.label",
+      "teks_sekarang": "[DRAFT] Tidur",
+      "teks_tanpa_penanda": "Tidur",
+      "jenis": "teks",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "deeptalk-ai/content/topics/tidur.json",
+      "path": "body.description",
+      "teks_sekarang": "[DRAFT] Deskripsi topik belum tersedia dari psikolog.",
+      "teks_tanpa_penanda": "Deskripsi topik belum tersedia dari psikolog.",
+      "jenis": "placeholder",
+      "area": "Topik dan Cakupan",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "db:ai_personas/draft-reflektif",
+      "path": "display_name",
+      "teks_sekarang": "Contoh Reflektif (DRAFT)",
+      "teks_tanpa_penanda": "Contoh Reflektif",
+      "jenis": "teks",
+      "area": "Nama persona contoh",
+      "tampil_langsung": true
+    },
+    {
+      "sumber": "db:ai_personas/draft-terstruktur",
+      "path": "display_name",
+      "teks_sekarang": "Contoh Terstruktur (DRAFT)",
+      "teks_tanpa_penanda": "Contoh Terstruktur",
+      "jenis": "teks",
+      "area": "Nama persona contoh",
+      "tampil_langsung": true
+    }
+  ]
+}

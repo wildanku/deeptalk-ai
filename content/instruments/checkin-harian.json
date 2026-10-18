@@ -1,0 +1,58 @@
+{
+  "kind": "instrument",
+  "ref_id": "checkin-harian",
+  "version": 2,
+  "status": "DRAFT",
+  "note": "DRAFT placeholder untuk alur check-in harian. Butir dan skala dipilih psikolog (03 Phase 8).",
+  "body": {
+    "purpose": "checkin",
+    "title": "Check-in harian",
+    "intro": "[DRAFT] Pengantar check-in belum tersedia dari psikolog.",
+    "disclaimer": "[DRAFT] Hasil ini bukan diagnosis. Teks pengingat disusun psikolog.",
+    "interval_days": 1,
+    "options": [
+      {
+        "value": 1,
+        "label": "[DRAFT] 1"
+      },
+      {
+        "value": 2,
+        "label": "[DRAFT] 2"
+      },
+      {
+        "value": 3,
+        "label": "[DRAFT] 3"
+      },
+      {
+        "value": 4,
+        "label": "[DRAFT] 4"
+      },
+      {
+        "value": 5,
+        "label": "[DRAFT] 5"
+      }
+    ],
+    "items": [
+      {
+        "id": "suasana",
+        "prompt": "[DRAFT] Butir check-in 1",
+        "short_label": "[DRAFT] Butir 1"
+      },
+      {
+        "id": "energi",
+        "prompt": "[DRAFT] Butir check-in 2",
+        "short_label": "[DRAFT] Butir 2"
+      },
+      {
+        "id": "tidur",
+        "prompt": "[DRAFT] Butir check-in 3",
+        "short_label": "[DRAFT] Butir 3"
+      }
+    ],
+    "scoring": {
+      "method": "mean",
+      "dimensions": [],
+      "bands": []
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "kind": "consent_text",
+  "ref_id": "ai_training",
+  "status": "DRAFT",
+  "version": 3,
+  "note": "DRAFT engineering untuk pengembangan. Teks final ditulis dan disetujui konsultan hukum — lihat docs/blockers/teks-hukum-consent-privasi-dpia.md.",
+  "body": {
+    "type": "ai_training",
+    "title": "Bantu kami meningkatkan DeepTalk AI",
+    "summary": [
+      "Pilihan ini sepenuhnya opsional dan tidak memengaruhi layananmu.",
+      "Bila setuju, percakapan dari sesi berikutnya boleh dipakai — setelah data pribadi disamarkan — untuk mengevaluasi dan meningkatkan DeepTalk AI.",
+      "Sesi yang mengandung tanda krisis tidak pernah dipakai.",
+      "Kamu bisa mencabutnya kapan saja; sesi sebelumnya ikut dikeluarkan."
+    ],
+    "body": "[DRAFT — belum ditinjau hukum]\n\nTeks lengkap persetujuan pemanfaatan data untuk peningkatan layanan akan disusun konsultan hukum.",
+    "min_accepted_version": 1
+  }
+}

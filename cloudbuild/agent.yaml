@@ -1,0 +1,45 @@
+# Agent: lint → typecheck → test → image → deploy without traffic → canary.
+substitutions:
+  _ENV: dev
+  _REGION: asia-southeast2
+  _REPO: deeptalk-ai
+  _SERVICE: agent
+  _CANARY_PERCENT: '10'
+options:
+  logging: CLOUD_LOGGING_ONLY
+steps:
+  - id: checks
+    name: ghcr.io/astral-sh/uv:python3.12-bookworm-slim
+    dir: agent
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        set -euo pipefail
+        uv sync --frozen
+        uv run ruff format --check .
+        uv run ruff check .
+        uv run mypy app agents tests prompts
+        uv run pytest -q
+  - id: image
+    name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA
+      - agent
+  - id: push
+    name: gcr.io/cloud-builders/docker
+    args: [push, '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA']
+  - id: deploy
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        set -euo pipefail
+        # Private service (ingress internal, gateway SA as the only invoker) — set in infra/.
+        gcloud run deploy ${_SERVICE} --region=${_REGION} \
+          --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA \
+          --no-traffic --tag=sha-$SHORT_SHA
+        gcloud run services update-traffic ${_SERVICE} --region=${_REGION} \
+          --to-tags=sha-$SHORT_SHA=${_CANARY_PERCENT}

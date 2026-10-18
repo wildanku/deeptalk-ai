@@ -1,0 +1,31 @@
+# Local development dependencies only (Postgres + Redis).
+# dev/staging/prod run the same Postgres/Redis on the Dokploy VM — see infra/README.md.
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: deeptalk_ai
+      POSTGRES_PASSWORD: deeptalk_ai
+      POSTGRES_DB: deeptalk_ai
+    ports:
+      - '5433:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U deeptalk_ai']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - '6380:6379'
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  postgres-data:

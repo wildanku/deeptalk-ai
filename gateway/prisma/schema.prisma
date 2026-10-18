@@ -1,0 +1,716 @@
+// DeepTalk AI — PostgreSQL (its own service on the Dokploy VM). Data model: docs/02-implementasi.md §8.
+//
+// - User IDs reference deeptalk-api-v3 `users.id` (varchar(255)); there are no cross-database
+//   foreign keys — consistency is kept by the account-lifecycle webhook (02 §9.3).
+// - Primary keys are UUIDv7 generated in the application (`uuidv7`), so they sort by time.
+// - Conversation content is only ever stored encrypted (`*_ciphertext`, KMS). Never add a
+//   plaintext content column, and never put content into `ai_outbox.payload`.
+// - Migrations must be additive (expand → migrate → contract).
+//
+// Phase 1: core tables. Phase 2: content, personas, safety events, summaries.
+// Phase 3: routines, assessment mappings, handoffs.
+// Phase 4: consents, account lifecycle sync. Phase 5: staff roles, persona curation, evals.
+// Phase 6: per-session usage, message reports (app store AI-content policy).
+// Phase 7: assessment referrals (impact indicators, Konsep §8).
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum AiRiskLevel {
+  normal
+  elevated
+  crisis
+}
+
+enum AiSessionStatus {
+  active
+  closing
+  ended
+}
+
+enum AiSessionEndReason {
+  completed
+  idle
+  wall_clock
+  /// The user ended the session from the chat ("Akhiri sesi").
+  user_ended
+}
+
+enum AiMessageRole {
+  user
+  assistant
+  /// Crisis/elevated protocol shown instead of a persona reply (content from psikolog).
+  protocol
+}
+
+enum AiContentKind {
+  persona_card
+  protocol
+  routine_item
+  l1_phrases
+  knowledge
+  /// Phase 4: consent texts (`service`, `ai_training`); reviewed by legal before approval.
+  consent_text
+  /// Phase 5: topic → assessment products; replaces `ai_assessment_mappings`.
+  assessment_mapping
+  /// Phase 5: questions psikolog answer to describe their approach.
+  persona_questionnaire
+  /// Phase 5: scenarios psikolog answer (few-shot examples or evaluation cases).
+  case_study
+  /// Phase 8: user-facing topic label and whether routines are allowed for it.
+  topic
+  /// Phase 8: daily check-in, periodic screening, or personality inventory.
+  instrument
+}
+
+enum AiContentStatus {
+  draft
+  in_review
+  approved
+  retired
+  /// Sent back by a reviewer; a fix is a new version.
+  rejected
+}
+
+enum AiConsentType {
+  service
+  ai_training
+  /// Phase 9: use of the user's earlier counseling chats (old `chat-service`). Opt-in only.
+  legacy_counseling
+}
+
+enum AiStaffRole {
+  clinical_reviewer
+  /// Phase 9: reviews de-identified dataset items before any use.
+  data_reviewer
+}
+
+/// Phase 9: approvals that must exist before any training-data job runs (Konsep §7.4).
+enum AiDataGate {
+  dpia
+  ethics_review
+  fine_tuning_go
+}
+
+enum AiDatasetSource {
+  teman_ai
+  legacy
+}
+
+enum AiDatasetItemStatus {
+  pending_review
+  approved
+  rejected
+  /// Consent withdrawn after the item was exported; content deleted, row kept for audit.
+  withdrawn
+}
+
+enum AiDatasetPurpose {
+  evaluation
+  style_examples
+  fine_tuning
+}
+
+enum AiEvalCaseUsage {
+  few_shot
+  eval
+}
+
+enum AiReportReason {
+  harmful
+  inaccurate
+  inappropriate
+  other
+}
+
+enum AiEvalRunStatus {
+  queued
+  running
+  completed
+  failed
+}
+
+enum AiPersonaStatus {
+  active
+  disabled
+}
+
+enum AiSafetyLayer {
+  l1
+  l2
+  l3
+  /// Gateway decisions without a classifier, e.g. fail-closed when the agent is down.
+  system
+  /// Phase 8: an answer at or above a safety item's threshold in a check-in or screening.
+  instrument
+}
+
+enum AiInstrumentPurpose {
+  checkin
+  screening
+  personality
+}
+
+enum AiRoutineProposalStatus {
+  proposed
+  accepted
+  rejected
+  expired
+}
+
+enum AiUserRoutineStatus {
+  active
+  paused
+  stopped
+}
+
+enum AiHandoffStatus {
+  draft
+  approved
+  declined
+  /// Booked with a different psikolog; waiting for the user to re-confirm sharing.
+  pending_confirmation
+  linked
+  viewed
+}
+
+enum AiOutboxStatus {
+  pending
+  processing
+  done
+  failed
+}
+
+/// One row per user. Locked with `SELECT … FOR UPDATE` when a session is created so two
+/// devices cannot pass the monthly quota at the same time (02 §6.3).
+model ai_user_state {
+  user_id         String    @id @db.VarChar(255)
+  age_band        String?   @db.VarChar(16)
+  onboarded_at    DateTime? @db.Timestamptz(3)
+  last_session_at DateTime? @db.Timestamptz(3)
+  memory_enabled  Boolean   @default(true)
+  /// When `age_band` was last confirmed against v3 (fallback while v3 is unreachable).
+  age_checked_at  DateTime? @db.Timestamptz(3)
+  created_at      DateTime  @default(now()) @db.Timestamptz(3)
+  updated_at      DateTime  @updatedAt @db.Timestamptz(3)
+}
+
+model ai_sessions {
+  id                    String                    @id @db.Uuid
+  user_id               String                    @db.VarChar(255)
+  persona_id            String?                   @db.VarChar(255)
+  persona_version       Int?
+  /// Calendar month in Asia/Jakarta, `YYYY-MM`.
+  period_month          String                    @db.Char(7)
+  started_at            DateTime                  @default(now()) @db.Timestamptz(3)
+  last_activity_at      DateTime                  @default(now()) @db.Timestamptz(3)
+  active_seconds        Int                       @default(0)
+  /// Sticky: the highest level ever reached in this session. `crisis` never goes down.
+  max_risk_level        AiRiskLevel               @default(normal)
+  status                AiSessionStatus           @default(active)
+  end_reason            AiSessionEndReason?
+  ended_at              DateTime?                 @db.Timestamptz(3)
+  /// `false` once the session reaches `crisis` — crisis sessions never consume quota.
+  counts_toward_quota   Boolean                   @default(true)
+  exclude_from_training Boolean                   @default(false)
+  /// Consecutive `normal` turns while `elevated`; 3 → back to `normal` (02 §7.2).
+  normal_streak         Int                       @default(0)
+  /// Topics from the router or the persona's focus, for knowledge injection.
+  topics                String[]                  @default([])
+  /// Quick Chat: why this persona was chosen (shown to the user).
+  router_reason         String?                   @db.VarChar(500)
+  warning_sent          Boolean                   @default(false)
+  /// Set when the active-time limit is reached; the session closes at this time.
+  closing_deadline      DateTime?                 @db.Timestamptz(3)
+  /// Phase 6 cost metrics (02 §12.3): persona turns and their token usage.
+  turns                 Int                       @default(0)
+  tokens_input          Int                       @default(0)
+  tokens_output         Int                       @default(0)
+  messages              ai_messages[]
+  safety_events         ai_safety_events[]
+  reports               ai_message_reports[]
+  referrals             ai_assessment_referrals[]
+  recommendations       ai_psikolog_recommendations[]
+
+  @@index([user_id, period_month])
+  @@index([user_id, status])
+}
+
+model ai_messages {
+  id                 String              @id @db.Uuid
+  session_id         String              @db.Uuid
+  role               AiMessageRole
+  content_ciphertext Bytes
+  risk_level         AiRiskLevel?
+  persona_version    Int?
+  model              String?             @db.VarChar(128)
+  prompt_version     String?             @db.VarChar(64)
+  /// Idempotency key from the client (`message.send`); null for assistant messages.
+  client_message_id  String?             @db.VarChar(64)
+  created_at         DateTime            @default(now()) @db.Timestamptz(3)
+  session            ai_sessions         @relation(fields: [session_id], references: [id], onDelete: Cascade)
+  aiMessageReports   ai_message_reports?
+
+  @@unique([session_id, client_message_id])
+  @@index([session_id, created_at])
+}
+
+model ai_session_summaries {
+  session_id            String   @id @db.Uuid
+  user_id               String   @db.VarChar(255)
+  summary_ciphertext    Bytes
+  exclude_from_training Boolean  @default(false)
+  created_at            DateTime @default(now()) @db.Timestamptz(3)
+
+  @@index([user_id, created_at])
+}
+
+/// Safety audit trail. Never stores message content. When the user's account is deleted the
+/// event is kept without its session (`session_id` null), so it can no longer be tied to anyone.
+model ai_safety_events {
+  id           String        @id @db.Uuid
+  session_id   String?       @db.Uuid
+  message_id   String?       @db.Uuid
+  layer        AiSafetyLayer
+  level        AiRiskLevel
+  signals      String[]      @default([])
+  created_at   DateTime      @default(now()) @db.Timestamptz(3)
+  reviewed_by  String?       @db.VarChar(255)
+  reviewed_at  DateTime?     @db.Timestamptz(3)
+  review_notes String?
+  session      ai_sessions?  @relation(fields: [session_id], references: [id], onDelete: SetNull)
+
+  @@index([level, created_at])
+  @@index([reviewed_at, created_at])
+  @@index([session_id])
+}
+
+/// Source of truth for clinical content (02 §8, A12). Append-only: a change is a new version.
+model ai_content_versions {
+  id           String          @id @db.Uuid
+  kind         AiContentKind
+  ref_id       String          @db.VarChar(128)
+  version      Int
+  body         Json
+  status       AiContentStatus @default(draft)
+  author_id    String?         @db.VarChar(255)
+  /// Enforced by a CHECK constraint: `approved` requires both (03 Phase 5 exit criteria).
+  approved_by  String?         @db.VarChar(255)
+  approved_at  DateTime?       @db.Timestamptz(3)
+  submitted_at DateTime?       @db.Timestamptz(3)
+  reviewed_by  String?         @db.VarChar(255)
+  reviewed_at  DateTime?       @db.Timestamptz(3)
+  review_notes String?         @db.VarChar(2000)
+  created_at   DateTime        @default(now()) @db.Timestamptz(3)
+
+  @@unique([kind, ref_id, version])
+  @@index([kind, status])
+}
+
+model ai_personas {
+  /// Slug, e.g. `mandy`.
+  id              String          @id @db.VarChar(64)
+  psychologist_id String          @db.VarChar(255)
+  /// Shown as "DeepTalk AI dengan pendekatan <display_name>".
+  display_name    String          @db.VarChar(255)
+  /// Approved `persona_card` version in use; null until one is approved.
+  active_version  Int?
+  status          AiPersonaStatus @default(active)
+  disabled_at     DateTime?       @db.Timestamptz(3)
+  created_at      DateTime        @default(now()) @db.Timestamptz(3)
+  updated_at      DateTime        @updatedAt @db.Timestamptz(3)
+}
+
+/// Deprecated in Phase 5: mappings are `assessment_mapping` content (versioned, approved).
+/// Kept until the contract step of the migration.
+model ai_assessment_mappings {
+  id                    String   @id @db.Uuid
+  topic                 String   @db.VarChar(64)
+  /// `assessment_products.id` in deeptalk-api-v3.
+  assessment_product_id String   @db.VarChar(255)
+  approved_by           String?  @db.VarChar(255)
+  active                Boolean  @default(true)
+  created_at            DateTime @default(now()) @db.Timestamptz(3)
+
+  @@unique([topic, assessment_product_id])
+}
+
+/// Psikolog who accept AI handoffs.
+model ai_handoff_psikologs {
+  psychologist_id String   @id @db.VarChar(255)
+  active          Boolean  @default(true)
+  updated_at      DateTime @updatedAt @db.Timestamptz(3)
+}
+
+model ai_routine_proposals {
+  id         String                  @id @db.Uuid
+  session_id String                  @db.Uuid
+  user_id    String                  @db.VarChar(255)
+  /// Validated proposal: items resolved against the active library versions.
+  routine    Json
+  status     AiRoutineProposalStatus @default(proposed)
+  /// The assistant reply the card belongs to (shown under it in the chat).
+  message_id String?                 @db.Uuid
+  created_at DateTime                @default(now()) @db.Timestamptz(3)
+  decided_at DateTime?               @db.Timestamptz(3)
+
+  @@index([user_id, status])
+  @@index([session_id])
+}
+
+model ai_user_routines {
+  id                String              @id @db.Uuid
+  user_id           String              @db.VarChar(255)
+  source_session_id String?             @db.Uuid
+  proposal_id       String?             @db.Uuid
+  routine           Json
+  status            AiUserRoutineStatus @default(active)
+  /// Local times `HH:mm` in `timezone`.
+  reminder_times    String[]            @default([])
+  timezone          String              @default("Asia/Jakarta") @db.VarChar(64)
+  started_at        DateTime            @default(now()) @db.Timestamptz(3)
+  stopped_at        DateTime?           @db.Timestamptz(3)
+  created_at        DateTime            @default(now()) @db.Timestamptz(3)
+  updated_at        DateTime            @updatedAt @db.Timestamptz(3)
+  logs              ai_routine_logs[]
+
+  @@index([user_id, status])
+  @@index([status])
+}
+
+model ai_routine_logs {
+  id              String           @id @db.Uuid
+  user_routine_id String           @db.Uuid
+  item_id         String           @db.VarChar(128)
+  /// Local calendar date in the routine's time zone.
+  date            DateTime         @db.Date
+  done            Boolean          @default(false)
+  value           Int?
+  note_ciphertext Bytes?
+  created_at      DateTime         @default(now()) @db.Timestamptz(3)
+  updated_at      DateTime         @updatedAt @db.Timestamptz(3)
+  routine         ai_user_routines @relation(fields: [user_routine_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_routine_id, item_id, date])
+}
+
+model ai_handoffs {
+  id                     String          @id @db.Uuid
+  session_id             String          @db.Uuid
+  user_id                String          @db.VarChar(255)
+  psychologist_id        String          @db.VarChar(255)
+  reason                 String          @db.VarChar(500)
+  draft_ciphertext       Bytes
+  final_ciphertext       Bytes?
+  removed_section_ids    String[]        @default([])
+  status                 AiHandoffStatus @default(draft)
+  booking_id             String?         @db.VarChar(255)
+  /// Psikolog of the linked booking when it differs from `psychologist_id`.
+  booked_psychologist_id String?         @db.VarChar(255)
+  approved_at            DateTime?       @db.Timestamptz(3)
+  linked_at              DateTime?       @db.Timestamptz(3)
+  viewed_at              DateTime?       @db.Timestamptz(3)
+  created_at             DateTime        @default(now()) @db.Timestamptz(3)
+
+  @@index([user_id, status])
+  @@index([booking_id])
+}
+
+/// Transactional outbox: push, psikolog notifications, session summaries.
+model ai_outbox {
+  id           String         @id @db.Uuid
+  kind         String         @db.VarChar(64)
+  /// IDs and metadata only — never conversation content.
+  payload      Json
+  status       AiOutboxStatus @default(pending)
+  attempts     Int            @default(0)
+  available_at DateTime       @default(now()) @db.Timestamptz(3)
+  created_at   DateTime       @default(now()) @db.Timestamptz(3)
+  updated_at   DateTime       @updatedAt @db.Timestamptz(3)
+
+  @@index([status, available_at])
+}
+
+/// Idempotency for inbound webhooks from deeptalk-api-v3 (account delete/merge).
+model ai_inbound_events {
+  event_id    String   @id @db.VarChar(255)
+  kind        String   @db.VarChar(64)
+  received_at DateTime @default(now()) @db.Timestamptz(3)
+}
+
+/// Consent history (02 §9.2). Append-only: revoking is a new row with `granted = false`; the
+/// newest row per type is the user's current decision.
+model ai_consents {
+  id           String        @id @db.Uuid
+  user_id      String        @db.VarChar(255)
+  type         AiConsentType
+  /// `consent_text` version the user saw.
+  text_version Int
+  granted      Boolean
+  created_at   DateTime      @default(now()) @db.Timestamptz(3)
+
+  @@index([user_id, type, created_at])
+}
+
+/// Cursors for pulled feeds, e.g. v3 account events.
+model ai_sync_cursors {
+  name       String   @id @db.VarChar(64)
+  value      String   @db.VarChar(255)
+  updated_at DateTime @updatedAt @db.Timestamptz(3)
+}
+
+/// Roles beyond the token's `psikolog` role (02 §10.2). Granted with `pnpm run roles:grant`.
+model ai_staff_roles {
+  psychologist_id String      @db.VarChar(255)
+  role            AiStaffRole
+  granted_by      String      @db.VarChar(255)
+  created_at      DateTime    @default(now()) @db.Timestamptz(3)
+
+  @@id([psychologist_id, role])
+}
+
+/// A psikolog's persona curation in progress (Konsep §3.2): questionnaire answers.
+model ai_persona_workspaces {
+  psychologist_id       String   @id @db.VarChar(255)
+  persona_id            String   @unique @db.VarChar(64)
+  display_name          String?  @db.VarChar(120)
+  questionnaire_version Int?
+  /// `{ <question id>: answer }` — the psikolog's own professional text, not user data.
+  answers               Json     @default("{}")
+  created_at            DateTime @default(now()) @db.Timestamptz(3)
+  updated_at            DateTime @updatedAt @db.Timestamptz(3)
+}
+
+/// A psikolog's ideal response to a case study. `few_shot` cases feed the Persona Card,
+/// `eval` cases are only used to evaluate it — never both (02 §7.3).
+model ai_eval_cases {
+  id                     String          @id @db.Uuid
+  author_psychologist_id String          @db.VarChar(255)
+  persona_id             String          @db.VarChar(64)
+  /// `case_study` content ref and version the scenario was taken from.
+  case_ref               String          @db.VarChar(128)
+  case_version           Int
+  scenario               String
+  ideal_response         String
+  expected_risk_level    AiRiskLevel     @default(normal)
+  usage                  AiEvalCaseUsage
+  created_at             DateTime        @default(now()) @db.Timestamptz(3)
+  updated_at             DateTime        @updatedAt @db.Timestamptz(3)
+
+  @@unique([persona_id, case_ref])
+}
+
+/// One evaluation of a persona version against its `eval` cases (02 §12.1).
+model ai_eval_runs {
+  id              String            @id @db.Uuid
+  persona_id      String            @db.VarChar(64)
+  persona_version Int
+  trigger         String            @default("manual") @db.VarChar(16)
+  status          AiEvalRunStatus   @default(queued)
+  model           String?           @db.VarChar(128)
+  prompt_version  String?           @db.VarChar(64)
+  created_by      String            @db.VarChar(255)
+  started_at      DateTime?         @db.Timestamptz(3)
+  completed_at    DateTime?         @db.Timestamptz(3)
+  created_at      DateTime          @default(now()) @db.Timestamptz(3)
+  ratings         ai_eval_ratings[]
+
+  @@index([persona_id, persona_version])
+}
+
+/// The AI's response to one synthetic case and the psikolog's rating. Responses are to
+/// synthetic scenarios, never user conversations.
+model ai_eval_ratings {
+  id          String       @id @db.Uuid
+  run_id      String       @db.Uuid
+  case_id     String       @db.Uuid
+  ai_response String
+  /// L2 verdict on the scenario and whether L3 replaced the response.
+  risk_level  AiRiskLevel  @default(normal)
+  replaced    Boolean      @default(false)
+  rater_id    String?      @db.VarChar(255)
+  safe        Boolean?
+  on_style    Boolean?
+  notes       String?      @db.VarChar(2000)
+  rated_at    DateTime?    @db.Timestamptz(3)
+  created_at  DateTime     @default(now()) @db.Timestamptz(3)
+  run         ai_eval_runs @relation(fields: [run_id], references: [id], onDelete: Cascade)
+
+  @@unique([run_id, case_id])
+}
+
+/// A user's report of an AI reply (Google Play AI-generated content policy, Phase 6). Never stores
+/// the user's ID or free text. Reviewers see the reply only when the user allowed it
+/// (`share_content`) and only while the message still exists; deleting history or the account
+/// leaves the report without its message.
+model ai_message_reports {
+  id              String         @id @db.Uuid
+  message_id      String?        @unique @db.Uuid
+  session_id      String?        @db.Uuid
+  persona_id      String?        @db.VarChar(64)
+  persona_version Int?
+  reason          AiReportReason
+  share_content   Boolean        @default(false)
+  created_at      DateTime       @default(now()) @db.Timestamptz(3)
+  reviewed_by     String?        @db.VarChar(255)
+  reviewed_at     DateTime?      @db.Timestamptz(3)
+  review_notes    String?        @db.VarChar(2000)
+  message         ai_messages?   @relation(fields: [message_id], references: [id], onDelete: SetNull)
+  session         ai_sessions?   @relation(fields: [session_id], references: [id], onDelete: SetNull)
+
+  @@index([reviewed_at, created_at])
+}
+
+/// An assessment card offered in a conversation, and whether the user opened it (impact
+/// indicator, Konsep §8). No content; deleted with the user's history or account, moved on merge.
+model ai_assessment_referrals {
+  id            String       @id @db.Uuid
+  user_id       String       @db.VarChar(255)
+  session_id    String?      @db.Uuid
+  assessment_id String       @db.VarChar(255)
+  topic         String       @db.VarChar(64)
+  offered_at    DateTime     @default(now()) @db.Timestamptz(3)
+  opened_at     DateTime?    @db.Timestamptz(3)
+  session       ai_sessions? @relation(fields: [session_id], references: [id], onDelete: SetNull)
+
+  @@index([user_id])
+  @@index([offered_at])
+}
+
+/// Psikolog recommendation cards (impact indicator, like assessment referrals): which psikolog
+/// were suggested and which one the user opened. No content; deleted with the user's history.
+model ai_psikolog_recommendations {
+  id                     String       @id @db.Uuid
+  user_id                String       @db.VarChar(255)
+  session_id             String?      @db.Uuid
+  psychologist_ids       String[]     @db.VarChar(255)
+  offered_at             DateTime     @default(now()) @db.Timestamptz(3)
+  opened_at              DateTime?    @db.Timestamptz(3)
+  opened_psychologist_id String?      @db.VarChar(255)
+  /// The assistant reply the card belongs to (shown under it in the chat).
+  message_id             String?      @db.Uuid
+  /// The card as shown (reasons mention the user's story): encrypted, AAD = row ID.
+  card_ciphertext        Bytes?
+  session                ai_sessions? @relation(fields: [session_id], references: [id], onDelete: SetNull)
+
+  @@index([user_id])
+  @@index([offered_at])
+}
+
+/// Phase 8: check-in, screening, and personality answers. Answers and scores are health data:
+/// both live only in `result_ciphertext` (AAD = row ID). One row per instrument per local day.
+model ai_instrument_responses {
+  id                 String              @id @db.Uuid
+  user_id            String              @db.VarChar(255)
+  instrument_ref     String              @db.VarChar(128)
+  instrument_version Int
+  purpose            AiInstrumentPurpose
+  /// Calendar date in the user's time zone when answered.
+  local_date         DateTime            @db.Date
+  result_ciphertext  Bytes
+  /// Highest safety level reached by a safety item; drives the protocol, not the score.
+  safety_level       AiRiskLevel         @default(normal)
+  created_at         DateTime            @default(now()) @db.Timestamptz(3)
+  updated_at         DateTime            @updatedAt @db.Timestamptz(3)
+
+  @@unique([user_id, instrument_ref, local_date])
+  @@index([user_id, purpose, local_date])
+  @@index([created_at])
+}
+
+/// Phase 9: psikolog addendum (Konsep §7.4 step 2), append-only like `ai_consents`. The newest
+/// row is the current decision; each use of their responses can be refused separately.
+model ai_psikolog_data_consents {
+  id                   String   @id @db.Uuid
+  psychologist_id      String   @db.VarChar(255)
+  /// `consent_text` `psikolog_addendum` version the psikolog saw.
+  text_version         Int
+  allow_evaluation     Boolean
+  allow_style_examples Boolean
+  allow_training       Boolean
+  created_at           DateTime @default(now()) @db.Timestamptz(3)
+
+  @@index([psychologist_id, created_at])
+}
+
+/// Phase 9: approval register, written by people through `pnpm run data:gate`, append-only.
+/// The newest row per gate decides (`approved = false` revokes).
+model ai_data_gates {
+  id          String     @id @db.Uuid
+  gate        AiDataGate
+  approved    Boolean
+  recorded_by String     @db.VarChar(255)
+  /// Where the evidence lives (document number or link); never personal data.
+  reference   String     @db.VarChar(500)
+  created_at  DateTime   @default(now()) @db.Timestamptz(3)
+
+  @@index([gate, created_at])
+}
+
+/// Phase 9: de-identified conversation candidates. Content exists only de-identified and
+/// encrypted (AAD = row ID). `user_id` is kept for withdrawal and deletion and is never exported.
+model ai_dataset_items {
+  id                 String              @id @db.Uuid
+  source             AiDatasetSource
+  /// Session ID (Teman AI) or the conversation ID from the extraction file (legacy).
+  source_ref         String              @db.VarChar(255)
+  user_id            String              @db.VarChar(255)
+  /// Whose responses these are: the persona's psikolog, or the counseling psikolog (legacy).
+  psychologist_id    String?             @db.VarChar(255)
+  persona_id         String?             @db.VarChar(64)
+  turns              Int
+  content_ciphertext Bytes?
+  deid_provider      String              @db.VarChar(32)
+  /// Counts per info type found and masked — never the values.
+  deid_findings      Json                @default("{}")
+  status             AiDatasetItemStatus @default(pending_review)
+  reviewed_by        String?             @db.VarChar(255)
+  reviewed_at        DateTime?           @db.Timestamptz(3)
+  review_notes       String?             @db.VarChar(2000)
+  used_for           AiDatasetPurpose[]  @default([])
+  last_exported_at   DateTime?           @db.Timestamptz(3)
+  created_at         DateTime            @default(now()) @db.Timestamptz(3)
+  updated_at         DateTime            @updatedAt @db.Timestamptz(3)
+
+  @@unique([source, source_ref])
+  @@index([status, created_at])
+  @@index([user_id])
+  @@index([psychologist_id])
+}
+
+/// Phase 9: one row per export, counts only — the audit trail of what was used for what.
+model ai_dataset_exports {
+  id          String           @id @db.Uuid
+  purpose     AiDatasetPurpose
+  item_count  Int
+  exported_by String           @db.VarChar(255)
+  /// Counts per source and skip reason; never content or user IDs.
+  manifest    Json             @default("{}")
+  created_at  DateTime         @default(now()) @db.Timestamptz(3)
+}
+
+/// Local task driver only (`TASKS_DRIVER=local`, development and E2E): a durable stand-in for
+/// Cloud Tasks. `name` deduplicates like a Cloud Tasks task name. Empty in production.
+model ai_local_tasks {
+  name             String    @id @db.VarChar(500)
+  queue            String    @db.VarChar(64)
+  payload          Json
+  run_at           DateTime  @db.Timestamptz(3)
+  attempts         Int       @default(0)
+  /// Seconds a claimed task may run before another instance may retry it (Cloud Tasks
+  /// dispatch deadline equivalent).
+  deadline_seconds Int       @default(60)
+  locked_until     DateTime? @db.Timestamptz(3)
+  /// Kept for an hour after success, so the name stays taken (Cloud Tasks semantics).
+  done_at          DateTime? @db.Timestamptz(3)
+  created_at       DateTime  @default(now()) @db.Timestamptz(3)
+
+  @@index([run_at])
+}

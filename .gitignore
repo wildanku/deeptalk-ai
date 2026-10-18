@@ -1,0 +1,79 @@
+# ── Secrets & environment ─────────────────────────────────────────────
+# Never commit real configuration. Only `.env.example` files are tracked.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+.creds/
+# GCP service-account keys (use Workload Identity / ADC instead)
+*service-account*.json
+*-sa-key*.json
+credentials.json
+application_default_credentials.json
+
+# ── OS / editors ──────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+*.swo
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+
+# ── Claude Code (keep shared skills, ignore personal settings) ────────
+.claude/settings.local.json
+
+# ── Logs & temp ───────────────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+.temp/
+.tmp/
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# ── gateway (Node / NestJS / Prisma) ──────────────────────────────────
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+gateway/src/generated/
+
+# ── agent (Python / uv) ───────────────────────────────────────────────
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+.adk/
+
+# ── infra (Terraform) ─────────────────────────────────────────────────
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.tfstate.lock.info
+backend.hcl
+
+# E2E runtime state (keys, tokens, logs)
+e2e/.state/
+
+# Local dev stack (scripts/dev-stack.sh): logs, pids, v3 build
+.dev/

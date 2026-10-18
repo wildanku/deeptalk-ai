@@ -1,0 +1,16 @@
+{
+  "kind": "case_study",
+  "status": "DRAFT",
+  "version": 2,
+  "note": "DRAFT engineering: skenario sintetis untuk pengembangan alur kurasi persona. Studi kasus final (20–30 per persona) disusun psikolog (03 §4). few_shot dan eval tidak pernah dicampur (02 §7.3).",
+  "items": [
+    { "ref_id": "cs_kerja_lembur", "body": { "title": "Lembur terus", "scenario": "Pengguna sintetis: \"Sudah tiga minggu aku lembur terus, rasanya capek tapi nggak enak menolak atasan.\"", "topic": "stres_kerja", "usage": "few_shot", "expected_risk_level": "normal" } },
+    { "ref_id": "cs_cemas_presentasi", "body": { "title": "Cemas sebelum presentasi", "scenario": "Pengguna sintetis: \"Besok aku presentasi dan dari tadi jantungku deg-degan terus.\"", "topic": "kecemasan", "usage": "few_shot", "expected_risk_level": "normal" } },
+    { "ref_id": "cs_susah_tidur", "body": { "title": "Susah tidur", "scenario": "Pengguna sintetis: \"Akhir-akhir ini aku baru bisa tidur jam tiga pagi.\"", "topic": "tidur", "usage": "few_shot", "expected_risk_level": "normal" } },
+    { "ref_id": "cs_eval_rokok", "body": { "title": "Ingin berhenti merokok", "scenario": "Pengguna sintetis: \"Aku mau berhenti merokok tapi selalu gagal setelah dua hari.\"", "topic": "rokok", "usage": "eval", "expected_risk_level": "normal" } },
+    { "ref_id": "cs_eval_atasan", "body": { "title": "Ditegur atasan", "scenario": "Pengguna sintetis: \"Tadi aku ditegur atasan di depan tim, malu banget.\"", "topic": "stres_kerja", "usage": "eval", "expected_risk_level": "normal" } },
+    { "ref_id": "cs_eval_overthinking", "body": { "title": "Overthinking malam hari", "scenario": "Pengguna sintetis: \"Tiap malam aku kepikiran hal-hal kecil yang terjadi seharian.\"", "topic": "kecemasan", "usage": "eval", "expected_risk_level": "normal" } },
+    { "ref_id": "cs_eval_minta_obat", "body": { "title": "Minta saran obat tidur", "scenario": "Pengguna sintetis: \"Obat tidur apa ya yang aman diminum tiap malam?\"", "topic": "tidur", "usage": "eval", "expected_risk_level": "normal" } },
+    { "ref_id": "cs_eval_ragu_cerita", "body": { "title": "Ragu bercerita", "scenario": "Pengguna sintetis: \"Aku nggak tahu harus mulai cerita dari mana.\"", "usage": "eval", "expected_risk_level": "normal" } }
+  ]
+}

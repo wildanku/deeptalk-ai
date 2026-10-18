@@ -1,0 +1,20 @@
+{
+  "kind": "persona_questionnaire",
+  "ref_id": "default",
+  "status": "DRAFT",
+  "version": 2,
+  "note": "DRAFT engineering, disusun dari unsur Persona Card (02 §7.3, Konsep §3.2). Pertanyaan final disusun tim psikolog (03 §4).",
+  "body": {
+    "questions": [
+      { "id": "approach_name", "prompt": "Nama pendekatan yang ingin ditampilkan ke pengguna (\"DeepTalk AI dengan pendekatan …\").", "required": true },
+      { "id": "approach", "prompt": "Jelaskan pendekatan Anda dalam sesi konseling.", "help": "Mis. kerangka teori yang Anda pakai dan bagaimana Anda menerapkannya.", "required": true },
+      { "id": "focus_topics", "prompt": "Topik yang paling sering Anda tangani.", "help": "Pisahkan dengan koma, mis. stres_kerja, kecemasan, tidur.", "required": true },
+      { "id": "tone", "prompt": "Bagaimana nada bicara Anda dengan klien?", "required": true },
+      { "id": "techniques", "prompt": "Teknik yang sering Anda gunakan.", "required": true },
+      { "id": "questioning_style", "prompt": "Bagaimana gaya Anda bertanya?", "required": true },
+      { "id": "opening", "prompt": "Bagaimana Anda biasanya membuka percakapan?", "required": true },
+      { "id": "always_say", "prompt": "Kalimat atau sikap yang selalu Anda tunjukkan.", "required": false },
+      { "id": "never_say", "prompt": "Kalimat atau sikap yang tidak pernah Anda gunakan.", "required": false }
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+-- Append the bilingual sample inventory as a draft. Existing v3 content must match exactly.
+DO $$
+DECLARE
+  new_body jsonb := $content$
+{
+  "purpose": "personality",
+  "title": "Inventori Refleksi Diri (Contoh)",
+  "intro": "Kuesioner contoh tentang kebiasaan saat menghadapi perubahan dan berinteraksi dengan orang lain. Jawab sesuai pengalamanmu dalam 6 bulan terakhir. Ini hanya contoh untuk mencoba fitur, bukan tes psikologi tervalidasi. Kamu boleh melewatinya.",
+  "disclaimer": "Kuesioner contoh ini belum ditinjau atau divalidasi psikolog. Hasilnya hanya merangkum jawabanmu dan bukan penilaian kepribadian, diagnosis, atau saran profesional.",
+  "interval_days": 180,
+  "options": [
+    {"value": 1, "label": "Sangat tidak setuju"},
+    {"value": 2, "label": "Tidak setuju"},
+    {"value": 3, "label": "Ragu-ragu"},
+    {"value": 4, "label": "Setuju"},
+    {"value": 5, "label": "Sangat setuju"}
+  ],
+  "items": [
+    {"id": "adaptasi_1", "prompt": "Saya dapat menyesuaikan rencana ketika situasi berubah.", "dimension": "adaptasi"},
+    {"id": "adaptasi_2", "prompt": "Perubahan mendadak biasanya membuat saya sulit melanjutkan kegiatan.", "dimension": "adaptasi", "reverse": true},
+    {"id": "adaptasi_3", "prompt": "Saat menghadapi cara baru, saya bersedia mencobanya sebelum memutuskan cocok atau tidak.", "dimension": "adaptasi"},
+    {"id": "interaksi_1", "prompt": "Saya merasa cukup nyaman memulai percakapan dengan orang yang belum saya kenal.", "dimension": "interaksi"},
+    {"id": "interaksi_2", "prompt": "Saya cenderung menghindari percakapan meskipun ingin mengenal orang lain.", "dimension": "interaksi", "reverse": true},
+    {"id": "interaksi_3", "prompt": "Saya dapat menyampaikan kebutuhan atau pendapat saya dengan jelas.", "dimension": "interaksi"}
+  ],
+  "scoring": {
+    "method": "mean",
+    "bands": [],
+    "dimensions": [
+      {"id": "adaptasi", "label": "Menyesuaikan diri", "description": "Ringkasan jawaban contoh tentang menghadapi perubahan. Ini bukan kesimpulan psikologis."},
+      {"id": "interaksi", "label": "Berinteraksi dengan orang lain", "description": "Ringkasan jawaban contoh tentang berinteraksi. Ini bukan kesimpulan psikologis."}
+    ]
+  },
+  "translations": {
+    "en": {
+      "title": "Self-Reflection Inventory (Sample)",
+      "intro": "A sample questionnaire about habits when facing change and interacting with others. Answer based on your experience over the past 6 months. This is only a feature demo, not a validated psychological test. You may skip it.",
+      "disclaimer": "This sample questionnaire has not been reviewed or validated by a psychologist. Its result only summarizes your answers; it is not a personality assessment, diagnosis, or professional advice.",
+      "options": [
+        {"value": 1, "label": "Strongly disagree"},
+        {"value": 2, "label": "Disagree"},
+        {"value": 3, "label": "Neither agree nor disagree"},
+        {"value": 4, "label": "Agree"},
+        {"value": 5, "label": "Strongly agree"}
+      ],
+      "items": [
+        {"id": "adaptasi_1", "prompt": "I can adjust my plans when circumstances change."},
+        {"id": "adaptasi_2", "prompt": "Sudden changes usually make it difficult for me to continue what I am doing."},
+        {"id": "adaptasi_3", "prompt": "When I encounter a new way of doing something, I am willing to try it before deciding whether it suits me."},
+        {"id": "interaksi_1", "prompt": "I feel reasonably comfortable starting a conversation with someone I do not know."},
+        {"id": "interaksi_2", "prompt": "I tend to avoid conversations even when I would like to get to know other people."},
+        {"id": "interaksi_3", "prompt": "I can clearly express my needs or opinions."}
+      ],
+      "scoring": {
+        "dimensions": [
+          {"id": "adaptasi", "label": "Adapting to change", "description": "A summary of sample answers about responding to change. This is not a psychological conclusion."},
+          {"id": "interaksi", "label": "Interacting with others", "description": "A summary of sample answers about interaction. This is not a psychological conclusion."}
+        ],
+        "bands": []
+      }
+    }
+  }
+}
+$content$::jsonb;
+  existing_body jsonb;
+BEGIN
+  SELECT body
+    INTO existing_body
+    FROM ai_content_versions
+   WHERE kind = 'instrument'
+     AND ref_id = 'inventori-kepribadian'
+     AND version = 3
+   FOR UPDATE;
+
+  IF FOUND THEN
+    IF existing_body IS DISTINCT FROM new_body THEN
+      RAISE EXCEPTION 'instrument/inventori-kepribadian v3 exists with different content; use a new version';
+    END IF;
+    RAISE NOTICE 'instrument/inventori-kepribadian v3 already exists unchanged';
+  ELSE
+    INSERT INTO ai_content_versions (id, kind, ref_id, version, body, status, author_id)
+    VALUES (
+      gen_random_uuid(),
+      'instrument',
+      'inventori-kepribadian',
+      3,
+      new_body,
+      'draft',
+      'seed:content'
+    );
+    RAISE NOTICE 'Inserted instrument/inventori-kepribadian v3 as draft';
+  END IF;
+END
+$$;

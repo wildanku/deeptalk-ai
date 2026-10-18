@@ -1,0 +1,74 @@
+# Gateway: lint → test → image → migrate (Cloud Run Job) → deploy without traffic → canary.
+# Promotion beyond the canary is a separate, manual step (cloudbuild/promote.yaml); from
+# Phase 6 it also requires the safety evaluation gate (02 §12.1).
+substitutions:
+  _ENV: dev
+  _REGION: asia-southeast2
+  _REPO: deeptalk-ai
+  _SERVICE: gateway
+  _CANARY_PERCENT: '10'
+options:
+  logging: CLOUD_LOGGING_ONLY
+steps:
+  - id: install
+    name: node:24-slim
+    dir: gateway
+    entrypoint: bash
+    args: ['-c', 'corepack enable && pnpm install --frozen-lockfile']
+  - id: lint
+    name: node:24-slim
+    dir: gateway
+    entrypoint: bash
+    args: ['-c', 'corepack enable && pnpm run lint:check && pnpm run typecheck']
+  - id: test
+    name: node:24-slim
+    dir: gateway
+    entrypoint: bash
+    args: ['-c', 'corepack enable && pnpm run test && pnpm run test:e2e']
+  - id: image
+    name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - --target=runtime
+      - -t=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA
+      - gateway
+  - id: migrate-image
+    name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - --target=migrate
+      - -t=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}-migrate:$SHORT_SHA
+      - gateway
+  - id: push
+    name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        docker push ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA
+        docker push ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}-migrate:$SHORT_SHA
+  - id: migrate
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        set -euo pipefail
+        # The job's VPC access, service account, and DATABASE_URL secret are managed in infra/.
+        gcloud run jobs update ${_SERVICE}-migrate --region=${_REGION} \
+          --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}-migrate:$SHORT_SHA
+        gcloud run jobs execute ${_SERVICE}-migrate --region=${_REGION} --wait
+  - id: deploy
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        set -euo pipefail
+        # Service settings (min instances, session affinity, 3600 s timeout, env, secrets) are
+        # owned by infra/; this only rolls a new revision out with no traffic, then a canary.
+        gcloud run deploy ${_SERVICE} --region=${_REGION} \
+          --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA \
+          --no-traffic --tag=sha-$SHORT_SHA
+        gcloud run services update-traffic ${_SERVICE} --region=${_REGION} \
+          --to-tags=sha-$SHORT_SHA=${_CANARY_PERCENT}

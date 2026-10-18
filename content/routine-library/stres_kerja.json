@@ -1,0 +1,11 @@
+{
+  "kind": "routine_item",
+  "status": "DRAFT",
+  "version": 1,
+  "note": "DRAFT placeholder. Pustaka final disusun psikolog (03 §4).",
+  "items": [
+    { "ref_id": "str_breathing_3min", "body": { "topic": "stres_kerja", "title": "Napas 3 menit", "description": "Luangkan 3 menit untuk bernapas pelan sebelum mulai bekerja.", "kind": "checklist", "time_of_day": "morning", "missed_day_message": "Hari yang sibuk itu wajar. Coba lagi besok, sekecil apa pun." } },
+    { "ref_id": "str_worry_note", "body": { "topic": "stres_kerja", "title": "Tulis satu kekhawatiran", "description": "Tulis satu hal yang paling mengganggu pikiranmu hari ini dan satu langkah kecil untuk besok.", "kind": "note", "time_of_day": "evening" } },
+    { "ref_id": "str_short_walk", "body": { "topic": "stres_kerja", "title": "Jalan singkat", "description": "Jalan kaki 5–10 menit di sela pekerjaan.", "kind": "checklist", "time_of_day": "afternoon" } }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "kind": "routine_item",
+  "status": "DRAFT",
+  "version": 1,
+  "note": "DRAFT dari contoh di dokumen konsep §3.6. Pustaka final disusun psikolog (03 §4).",
+  "items": [
+    { "ref_id": "smk_morning_rating", "body": { "topic": "rokok", "title": "Nilai keinginan merokok pagi ini", "description": "Catat seberapa kuat keinginan merokok hari ini (1–5) dan satu alasan pribadi untuk berhenti.", "kind": "scale", "time_of_day": "morning", "scale": { "min": 1, "max": 5, "label": "Seberapa kuat keinginan merokok?" }, "missed_day_message": "Tidak apa-apa melewatkan satu hari. Besok kita coba lagi." } },
+    { "ref_id": "smk_delay_10min", "body": { "topic": "rokok", "title": "Tunda 10 menit", "description": "Saat dorongan muncul, tunda 10 menit: tarik napas, minum air, atau jalan sebentar, lalu catat apakah dorongan mereda.", "kind": "checklist", "time_of_day": "any", "trigger": "on_urge" } },
+    { "ref_id": "smk_evening_trigger_log", "body": { "topic": "rokok", "title": "Catat pemicu hari ini", "description": "Malam hari, catat pemicu hari ini dan satu hal yang berhasil.", "kind": "note", "time_of_day": "evening" } }
+  ]
+}

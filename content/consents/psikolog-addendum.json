@@ -1,0 +1,18 @@
+{
+  "kind": "consent_text",
+  "ref_id": "psikolog_addendum",
+  "status": "DRAFT",
+  "version": 3,
+  "note": "DRAFT engineering untuk pengembangan Phase 9 (Konsep §7.4). Teks final ditulis dan disetujui konsultan hukum — lihat docs/blockers/teks-hukum-consent-privasi-dpia.md. Ini teks addendum kontrak psikolog, bukan untuk pengguna.",
+  "body": {
+    "type": "psikolog_addendum",
+    "title": "Addendum pemanfaatan respons psikolog",
+    "summary": [
+      "Mengatur apakah respons Anda di konseling chat dan gaya persona Anda boleh dipakai untuk evaluasi, contoh gaya, atau pelatihan DeepTalk AI.",
+      "Setiap pemakaian bisa Anda tolak secara terpisah, kapan saja.",
+      "Data hanya dipakai bila pengguna juga setuju, setelah identitas dihapus dan diperiksa manusia."
+    ],
+    "body": "[DRAFT — belum ditinjau hukum]\n\nTeks lengkap addendum kontrak akan disusun konsultan hukum bersama DeepTalk.",
+    "min_accepted_version": 1
+  }
+}
