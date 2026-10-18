@@ -27,7 +27,7 @@ Dokumentasi implementasi DeepTalk AI ("Teman AI"): teman bicara berbasis AI deng
 
 ## Konvensi
 
-- Instruksi untuk AI agent ada di [`AGENT.md`](../AGENT.md) (dimuat `CLAUDE.md`), dengan skill di `.claude/skills/` (`task-recap`, `gateway`, `agent`).
+- Instruksi untuk AI agent ada di [`AGENT.md`](../AGENT.md); skill pendukung (`task-recap`, `gateway`, `agent`) disimpan lokal dan tidak dipublikasikan.
 - Setiap pekerjaan yang mengubah kode, konfigurasi, infrastruktur, atau dokumen di repo ini dicatat di `docs/tasks/YYYYMMDD-<nama-task>.md`: daftar pekerjaan dibuat di awal, status selesai/belum ditandai di akhir, dengan bagian Rekap Status.
 - Blocker dicatat satu file per blocker di `docs/blockers/<nama-blocker>.md` dan didaftarkan di [blockers/README.md](blockers/README.md).
 - Perubahan di repo lain mengikuti konvensi repo tersebut (`AGENT.md`, `AGENTS.md`, `docs/phase/`).

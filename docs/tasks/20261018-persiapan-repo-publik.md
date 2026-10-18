@@ -16,13 +16,15 @@ Repo akan dibuat publik untuk penilaian kompetisi. Pastikan tidak ada kredensial
 - [x] Hapus dokumen yang merinci kerentanan terbuka di sistem lain (`docs/security/tinjauan-internal-20261011.md`, `docs/blockers/temuan-keamanan-repo-lain.md`)
 - [x] Samarkan rujukan ke dokumen tersebut (`docs/03-phase.md`, `docs/blockers/README.md`, recap Phase 6)
 - [x] Samarkan path lokal dan ID akun uji di recap
-- [x] Bersihkan riwayat git agar dokumen yang dihapus tidak terbaca dari commit lama — riwayat diganti satu commit (orphan) dan di-push ke remote publik yang masih kosong; riwayat lama disimpan di branch lokal `backup/pre-public-history` (tidak di-push)
+- [x] Bersihkan riwayat git agar dokumen yang dihapus tidak terbaca dari commit lama — riwayat diganti satu commit (orphan); push ke `wildanku/deeptalk-ai` dijalankan pemilik repo; riwayat lama disimpan di branch lokal `backup/pre-public-history` (tidak di-push)
 
 ## File yang Diubah
 
 - `docs/security/tinjauan-internal-20261011.md`, `docs/blockers/temuan-keamanan-repo-lain.md` — dihapus; disimpan internal di luar repo publik.
 - `docs/03-phase.md`, `docs/blockers/README.md`, `docs/tasks/20261011-phase-6-hardening-produksi.md` — rujukan dan rincian kerentanan disamarkan.
 - `docs/tasks/20261015-topologi-deployment-cloud-tasks.md`, `docs/tasks/20261016-uji-lokal-alur-pengguna-web.md`, `docs/tasks/20261016-rekomendasi-psikolog.md` — path lokal dan ID akun uji dihapus.
+- `.gitignore` — `CLAUDE.md` dan `.claude/` tidak dipublikasikan; dikeluarkan dari index (file lokal tetap ada).
+- `AGENT.md`, `docs/README.md` — tautan ke `.claude/skills/*` dan `CLAUDE.md` dihapus agar tidak mati di repo publik.
 
 ## Keputusan
 

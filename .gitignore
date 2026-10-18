@@ -25,8 +25,9 @@ Thumbs.db
 !.vscode/extensions.json
 !.vscode/launch.json
 
-# ── Claude Code (keep shared skills, ignore personal settings) ────────
-.claude/settings.local.json
+# ── Claude Code (local only, not published) ───────────────────────────
+CLAUDE.md
+.claude/
 
 # ── Logs & temp ───────────────────────────────────────────────────────
 logs/

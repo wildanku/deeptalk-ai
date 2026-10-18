@@ -127,7 +127,7 @@ Fitur pengguna dianggap selesai bila tersedia di web **dan** app, kecuali disebu
 
 ## Dokumentasi Task dan Blocker (Wajib)
 
-Setiap task yang mengubah kode, konfigurasi, dependensi, skema, infrastruktur, atau dokumen di repo ini **wajib** didokumentasikan. Ikuti skill **task-recap** ([.claude/skills/task-recap/SKILL.md](.claude/skills/task-recap/SKILL.md)) untuk template lengkap. Ringkasnya:
+Setiap task yang mengubah kode, konfigurasi, dependensi, skema, infrastruktur, atau dokumen di repo ini **wajib** didokumentasikan. Ikuti skill **task-recap** (bila tersedia di lingkungan lokal) untuk template lengkap. Ringkasnya:
 
 1. **Awal task — daftar pekerjaan.** Pecah task menjadi daftar item konkret, lalu langsung buat `docs/tasks/YYYYMMDD-<nama-task>.md` berisi daftar itu (semua `[ ]`). File dibuat di awal supaya catatan tetap ada walau sesi terputus.
 2. **Selama task — perbarui.** Centang item yang selesai, tambahkan item baru yang muncul, catat file yang diubah.
@@ -139,6 +139,8 @@ Task belum boleh diserahkan kembali ke pengguna sebelum recap ditulis dan checkl
 
 ## Skills
 
-- **task-recap** ([.claude/skills/task-recap/SKILL.md](.claude/skills/task-recap/SKILL.md)) — alur dan template dokumentasi task (`docs/tasks/`) dan blocker (`docs/blockers/`). Muat di awal **setiap** task yang mengubah repo ini.
-- **gateway** ([.claude/skills/gateway/SKILL.md](.claude/skills/gateway/SKILL.md)) — konvensi NestJS untuk `gateway/`: modul, Socket.IO `/ai`, auth JWKS, Prisma, sesi/kuota, safety L1. Muat untuk pekerjaan di `gateway/`.
-- **agent** ([.claude/skills/agent/SKILL.md](.claude/skills/agent/SKILL.md)) — konvensi Python + ADK untuk `agent/`: endpoint `/v1/*`, SSE, safety L2/L3, output terstruktur, evaluasi. Muat untuk pekerjaan di `agent/`.
+Skill agent disimpan lokal (tidak dipublikasikan di repo ini):
+
+- **task-recap** — alur dan template dokumentasi task (`docs/tasks/`) dan blocker (`docs/blockers/`). Muat di awal **setiap** task yang mengubah repo ini.
+- **gateway** — konvensi NestJS untuk `gateway/`: modul, Socket.IO `/ai`, auth JWKS, Prisma, sesi/kuota, safety L1. Muat untuk pekerjaan di `gateway/`.
+- **agent** — konvensi Python + ADK untuk `agent/`: endpoint `/v1/*`, SSE, safety L2/L3, output terstruktur, evaluasi. Muat untuk pekerjaan di `agent/`.
